@@ -6,6 +6,6 @@ from django.conf import settings
 #from .models import Contact_models
 
 # Create your views here.
-#
-# def home(request):
-#     return render(request, 'index.html', {})    #create home view
+
+def home(request):
+    return render(request, 'index.html', {})    #create home view

@@ -1,0 +1,930 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Exshine - Responsive Multipurpose HTML5 Template</title>
+    <!-- Import Ficon -->
+    <link rel="shortcut icon" href="{% static 'img/ficon.png' %}">
+    <!-- Import Bootstrap Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <!-- Font Awesome Css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <!-- Import Animate -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+    <!-- VideoPopUp Css -->
+    <link type="text/css" rel="'stylesheet" href="{% static 'css/VideoPopUp.css' %}">
+    <!-- Import fancybox Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <!-- Import Style Css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <!-- Import Pageloder-->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/pageloder.css' %}">
+    <!-- Import Responsive Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Scroll Up -->
+    <a class="back-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Import Latest Jquery Libery -->
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <!-- Imoprt Latest Bootstrap Min Js -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Import Latest Wow Min Js -->
+    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+    <!-- VideoPopUp Js -->
+    <script type="text/javascript" src="{% static 'js/VideoPopUp.jquery.js' %}"></script>
+    <!-- Fancybox Js -->
+    <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- Import waypoints Ui -->
+    <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <!-- Import Jquery counterup -->
+    <script type="text/javascript" src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <!-- Import Jquery Map -->
+    <script type="text/javascript" src="{% static 'js/jquery.mapit.js' %}"></script>
+    <!-- Import Map Ui -->
+    <script type="text/javascript" src="{% static 'js/jquery.ui.map.min.js' %}"></script>
+    <!-- Import Online Google Map Api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Pa1D-gHuQ9qZ2tX5nSfyL2PAddxmePY"></script>
+
+    <!-- Coutom Js -->
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</head>
+<body id="home">
+<!-- LOADER START -->
+<div id="loader-wrapper">
+    <!-- loader -->
+    <div id="loader"></div>
+    <!-- animation left -->
+    <div class="loader-section section-left"></div>
+    <!-- animation right -->
+    <div class="loader-section section-right"></div>
+</div>
+<!-- LOADER END -->
+
+<header>
+    <!-- Strat Nav Area -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{% static 'img/logo.png' %}" alt="Logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about">About</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#Services">Services</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#Gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#blog">Blog</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Navbar Collapse -->
+            </div>
+        </div>
+        <!-- Container Fluid -->
+    </nav>
+</header>
+
+<!-- Start Slider Area -->
+<div id="slider" class="bd-slider-area">
+    <div class="main-container">
+        <div id="carousel-example-generic" class="carousel slide carousel-fade">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                <!-- First slide -->
+                <div class="item active slide-1">
+                    <div class="carousel-caption">
+                        <p data-animation="animated fadeInDown">
+                            start your business
+                        </p>
+                        <h3 data-animation="animated fadeInUp">
+                            responsive with bootstrap
+                        </h3>
+                        <button class="btn btn-primary btn-lg" data-animation="animated zoomIn">Join Now</button>
+                    </div>
+                </div>
+                <!-- /.item -->
+
+                <!-- Second slide -->
+                <div class="item slide-2">
+                    <div class="carousel-caption">
+                        <p data-animation="animated fadeInDown">
+                            start your business
+                        </p>
+                        <h3 data-animation="animated fadeInUp">
+                            responsive with bootstrap
+                        </h3>
+                        <button class="btn btn-primary btn-lg" data-animation="animated zoomIn">Join Now</button>
+                    </div>
+                </div>
+                <!-- /.item -->
+
+                <!-- Third slide -->
+                <div class="item slide-3">
+                    <div class="carousel-caption">
+                        <p data-animation="animated fadeInDown">
+                            start your business
+                        </p>
+                        <h3 data-animation="animated fadeInUp">
+                            responsive with bootstrap
+                        </h3>
+                        <button class="btn btn-primary btn-lg" data-animation="animated zoomIn">Join Now</button>
+                    </div>
+                </div>
+                <!-- /.item -->
+
+            </div>
+            <!-- /.carousel-inner -->
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- /.carousel -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- End Slider Area -->
+
+<!-- Strat About Area -->
+<section id="about" class="bd-about-area clearfix">
+    <!-- =============== container =============== -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bd-about-col">
+                    <h2>Stay with <span>Exshine</span></h2>
+                    <h5 class="h5">Start your Business from here</h5>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bd-about-col">
+                    <h3>Our activities</h3>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable If you are going. </p>
+                    <ul>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Responsive design with bootstrap</li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Modern and unique websites</li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Very easy to customize for everyone</li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Latest blog post with grid systems</li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Web design and development courses</li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i> Outsourcing processes and procedures</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bd-about-col">
+                    <img class="max" src="{% static 'img/about/1.jpg' %}" alt="About Us"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Container -->
+</section>
+<!-- End About Area -->
+
+<!-- Start Video Section -->
+<section class="bd-video-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bd-video-col text-center">
+                    <h2>Our Business Meeting</h2>
+                    <a class="demo" href="https://www.youtube.com/watch?v=ypxH_2qdePc"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Strat Service Area -->
+<section class="bd-service-area" id="Services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>Our Services</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-laptop" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-superpowers" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-rocket" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-apple" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="bd-service-col">
+                    <div class="bd-service-item">
+                        <i class="fa fa-leaf" aria-hidden="true"></i>
+                        <h4>Responsive Desigh</h4>
+                        <div class="bd-service-content">
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Service Area -->
+
+<!-- Strat Team Area -->
+<section id="team" class="clearfix">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>Our team</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="team-col text-center">
+                    <div class="team-img">
+                        <img src="{% static 'img/team/team-img1.jpg' %}" alt="Team">
+                        <div class="hover-style">
+                            <div class="team-social">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="member-name">
+                        <h3>Jon Marks</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="team-col text-center">
+                    <div class="team-img">
+                        <img src="{% static 'img/team/team-img2.jpg' %}" alt="Team">
+                        <div class="hover-style">
+                            <div class="team-social">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="member-name">
+                        <h3>Jon Marks</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="team-col text-center">
+                    <div class="team-img">
+                        <img src="{% static 'img/team/team-img3.jpg' %}" alt="Team">
+                        <div class="hover-style">
+                            <div class="team-social">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="member-name">
+                        <h3>Jon Marks</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="team-col text-center">
+                    <div class="team-img">
+                        <img src="{% static 'img/team/team-img4.jpg' %}" alt="Team">
+                        <div class="hover-style">
+                            <div class="team-social">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="member-name">
+                        <h3>Jon Marks</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Container -->
+</section>
+<!-- End Team Area -->
+
+<!-- Strat Gallery Area -->
+<section id="Gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>Our Gallery</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-3.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-3.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-4.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-4.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-5.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-5.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-6.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-6.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-7.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-7.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 bd-pad0">
+        <div class="bd-portfolio-item">
+            <div class="bd-portfolio-img">
+                <img src="{% static 'img/gallery/emp-8.jpg' %}" alt="">
+                <div class="bd-overlayer">
+                    <a class="fancybox" href="{% static 'img/gallery/emp-8.jpg' %}">
+                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Gallery Area -->
+
+<!-- Strat pricing -->
+<section class="bd-pricing-area clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>Pricing Table</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="bd-pricing-col">
+                    <div class="bd-price">
+                        <h3>29$</h3>
+                    </div>
+                    <div class="table-headline">
+                        <h2>Basic</h2>
+                    </div>
+                    <div class="price-list">
+                        <ul>
+                            <li>1 Website</li>
+                            <li>1 GB Storage</li>
+                            <li>10 GB Bandwidth</li>
+                            <li>3 Month Support</li>
+                            <li>5 Database</li>
+                        </ul>
+                        <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="bd-pricing-col">
+                    <div class="bd-price">
+                        <h3>39$</h3>
+                    </div>
+                    <div class="table-headline">
+                        <h2>standard</h2>
+                    </div>
+                    <div class="price-list">
+                        <ul>
+                            <li>1 Website</li>
+                            <li>2 GB Storage</li>
+                            <li>20 GB Bandwidth</li>
+                            <li>6 Month Support</li>
+                            <li>5 Database</li>
+                        </ul>
+                        <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="bd-pricing-col">
+                    <div class="bd-price">
+                        <h3>49$</h3>
+                    </div>
+                    <div class="table-headline">
+                        <h2>PREMIUM</h2>
+                    </div>
+                    <div class="price-list">
+                        <ul>
+                            <li>10 Website</li>
+                            <li>50 GB Storage</li>
+                            <li>50 GB Bandwidth</li>
+                            <li>Unlimited Support</li>
+                            <li>10 Database</li>
+                        </ul>
+                        <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="bd-pricing-col">
+                    <div class="bd-price">
+                        <h3>89$</h3>
+                    </div>
+                    <div class="table-headline">
+                        <h2>profesional</h2>
+                    </div>
+                    <div class="price-list">
+                        <ul>
+                            <li>10 Website</li>
+                            <li>50 GB Storage</li>
+                            <li>50 GB Bandwidth</li>
+                            <li>Unlimited Support</li>
+                            <li>10 Database</li>
+                        </ul>
+                        <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Container -->
+</section>
+<!-- End For Box -->
+
+<!-- Strat Counter Area -->
+<section class="counter clearfix">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <i class="fa fa-rocket"></i>
+                <h2 class="count">2510</h2>
+                <span>Projects Delivered</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <i class="fa fa-clock-o"></i>
+                <h2 class="count">1540</h2>
+                <span>Hour of Work</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <i class="fa fa-coffee"></i>
+                <h2 class="count">1250</h2>
+                <span>Cup of Coffee</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <i class="fa fa-trophy"></i>
+                <h2 class="count">450</h2>
+                <span>Awards Won</span>
+            </div>
+        </div>
+    </div>
+    <!-- End Container -->
+</section>
+<!-- End Counter Area -->
+
+<!-- Strat Blog Area -->
+<section id="blog">
+    <!-- Start Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>Our Blog</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 blog-box clearfix">
+                <div class="blog-post">
+                    <figure class="image">
+                        <a href="blog-single.html" class="fancybox" data-fancybox-group="gallery">
+                            <img alt="" src="{% static 'img/blog/blog1.jpg' %}" class="img-responsive" height="533" width="800">
+                            <div class="overlay"></div>
+                        </a>
+                    </figure>
+                    <div class="contents-box">
+                        <div class="date-box">
+                            <div class="inner">
+                                <div class="date">
+                                    <b>24</b> sep
+                                </div>
+                                <div class="comment">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 8
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href=""><h3>HERE WILL BE THE TITLE</h3></a>
+                            <p class="text-muted">There are many variations passages available, but the lorem, ipsum... </p>
+                        </div>
+                        <div class="row read-btn">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <a href="blog-single.html" class="btn">Continue Reading &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 blog-box clearfix">
+                <div class="blog-post">
+                    <figure class="image">
+                        <a href="blog-single.html" class="fancybox" data-fancybox-group="gallery">
+                            <img alt="" src="{% static 'img/blog/blog2.jpg' %}" class="img-responsive"  height="533" width="800">
+                            <div class="overlay"></div>
+                        </a>
+                    </figure>
+                    <div class="contents-box">
+                        <div class="date-box">
+                            <div class="inner">
+                                <div class="date">
+                                    <b>24</b> sep
+                                </div>
+                                <div class="comment">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 8
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href=""><h3>HERE WILL BE THE TITLE</h3></a>
+                            <p class="text-muted">There are many variations passages available, but the lorem, ipsum...</p>
+                        </div>
+                        <div class="row read-btn">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <a href="blog-single.html" class="btn">Continue Reading &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 blog-box clearfix">
+                <div class="blog-post">
+                    <figure class="image">
+                        <a href="blog-single.html" class="fancybox" data-fancybox-group="gallery">
+                            <img alt=""  src="{% static 'img/blog/blog3.jpg' %}" class="img-responsive" height="533" width="800">
+                            <div class="overlay"></div>
+                        </a>
+                    </figure>
+                    <div class="contents-box">
+                        <div class="date-box">
+                            <div class="inner">
+                                <div class="date">
+                                    <b>24</b> sep
+                                </div>
+                                <div class="comment">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 8
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href=""><h3>HERE WILL BE THE TITLE</h3></a>
+                            <p class="text-muted">There are many variations passages available, but the lorem, ipsum...</p>
+                        </div>
+                        <div class="row read-btn">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <a href="blog-single.html" class="btn">Continue Reading &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 hidden-xs hidden-md hidden-lg col-sm-6 col-md-4 blog-box clearfix">
+                <div class="blog-post">
+                    <figure class="image">
+                        <a href="blog-single.html" class="fancybox" data-fancybox-group="gallery">
+                            <img alt="" src="{% static 'img/blog/blog1.jpg' %}" class="img-responsive" height="533" width="800">
+                            <div class="overlay"></div>
+                        </a>
+                    </figure>
+                    <div class="contents-box">
+                        <div class="date-box">
+                            <div class="inner">
+                                <div class="date">
+                                    <b>24</b> sep
+                                </div>
+                                <div class="comment">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 8
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href=""><h3>HERE WILL BE THE TITLE</h3></a>
+                            <p class="text-muted">There are many variations passages available, but the lorem, ipsum... </p>
+                        </div>
+                        <div class="row read-btn">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <a href="blog-single.html" class="btn">Continue Reading &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  End Container -->
+</section>
+<!-- End Blog Area -->
+
+<!-- Strat Contact Area -->
+<section id="contact" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="bd-section-title">
+                    <h2>get in touch</h2>
+                    <div class="bd-title-bordar">
+                        <i class="fa fa-diamond" aria-hidden="true"></i>
+                    </div>
+                    <p>vitae turpis quis Eros egestas tempor sit amet a arcu. Duis egestas</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <!-- Map -->
+                <div id="map_canvas"></div>
+                <!-- End Map -->
+            </div>
+            <div class="col-xs-12 col-sm-6 form-right">
+                <form action="send.php" method="post">
+                    <div class="ajax-hidden">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+                            <label for="first-name" class="sr-only">First Name</label>
+                            <input type="text" placeholder="First Name" name="name" class="form-control" id="first-name" required="">
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+                            <label for="last-name" class="sr-only">Last Name</label>
+                            <input type="text" placeholder="First Name" name="name" class="form-control" id="last-name" required="">
+                        </div>
+
+                        <div data-wow-delay=".1s" class="col-xs-12 col-sm-12 form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" placeholder="E-mail" name="email" class="form-control" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="">
+                        </div>
+
+                        <div data-wow-delay=".2s"
+                             class="col-xs-12 col-sm-12 col-md-12 form-group">
+                            <textarea placeholder="Message" rows="7" name="description" id="description" class="form-control" required=""></textarea>
+                        </div>
+
+                        <button data-wow-delay=".3s" class="btn btn-sm btn-block" type="submit">
+                            Send Message
+                        </button>
+                    </div>
+                    <div class="ajax-response"></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- =============== container end =============== -->
+</section>
+<!-- End Contact Area -->
+
+<!-- Footer Start -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-col">
+                    <h3>About <span>Exshine</span></h3>
+                    <p class="top-para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-col">
+                    <h3>RECENT TWEETS</h3>
+                    <div class="twitter-box">
+                        <p><a href="#">@Company Name</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                    </div>
+                    <div class="twitter-box">
+                        <p><a href="#">@Company Name</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="footer-col address-col">
+                    <h3>CONTACT US</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <ul>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 102, New South Wales, Australia</li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i> Yourmail@gmail.com</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> +012 0244 5528 1520</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Copyright Start -->
+<section class="copyright-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright-col text-center">
+                    <p>Designed by <a href="https://wrapbootstrap.com/user/bdcoder" target="_blank">bdCoder</a>. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

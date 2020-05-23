@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Exshine - Responsive Multipurpose HTML5 Template</title>
+    <!-- Import Ficon -->
+    <link rel="shortcut icon" href="{% static 'img/ficon.png' %}">
+    <!-- Import Bootstrap Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <!-- Font Awesome Css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <!--  Import BaugetteBox Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/baguetteBox.css' %}">
+    <!-- Import Animate -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+    <!-- Import Slider Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/slider.css' %}">
+    <!-- Import Style Css -->
+    <link rel="stylesheet" href="{% static 'css/style.css" type="text/css' %}">
+    <!-- Import Pageloder-->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/pageloder.css' %}">
+    <!-- Import Responsive Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <!--  End Footer Area -->
+    <a class="back-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Import Latest Jquery Libery -->
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <!-- Imoprt Latest Bootstrap Min Js -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Latest Snao Svg Min Js -->
+    <script type="text/javascript" src="{% static 'js/snap.svg-min.js' %}"></script>
+    <!-- Latest Slider Min Js -->
+    <script type="text/javascript" src="{% static 'js/slider.min.js' %}"></script>
+    <!-- Import Jquery Fittext Js -->
+    <script type="text/javascript" src="{% static 'js/jquery.fittext.js' %}"></script>
+    <!-- Import Latest BaguetteBox Js -->
+    <script type="text/javascript" src="{% static 'js/baguetteBox.js' %}"></script>
+    <!-- Import Latest Jquery Simple Counter Js -->
+    <script type="text/javascript" src="{% static 'js/jQuerySimpleCounter.js' %}"></script>
+    <!-- Import Jquery Map -->
+    <script type="text/javascript" src="{% static 'js/jquery.mapit.js' %}"></script>
+    <!-- Import Online Google Map Api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Pa1D-gHuQ9qZ2tX5nSfyL2PAddxmePY"></script>
+    <!-- Import Map Ui -->
+    <script type="text/javascript" src="{% static 'js/jquery.ui.map.min.js' %}"></script>
+    <!-- VideoPopUp Js -->
+    <script type="text/javascript" src="{% static 'js/VideoPopUp.jquery.js' %}"></script>
+    <!-- Fancybox Js -->
+    <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- Import Latest Wow Min Js -->
+    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+    <!-- Import Satting Js -->
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</head>
+
+<body>
+    <!-- Strat Page Loder -->
+    <div id="loader-wrapper">
+        <!-- loader -->
+        <div id="loader"></div>
+        <!-- animation left -->
+        <div class="loader-section section-left"></div>
+        <!-- animation right -->
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loder -->
+
+    <!--  Strat Nav Area -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+						<li>
+                            <a class="page-scroll" href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="index.html#about">About</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="index.html#Services">Services</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="index.html#Gallery">Gallery</a>
+                        </li>
+                        <li class="active">
+                            <a class="page-scroll" href="index.html#blog">Blog</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </div>
+        <!-- Container Fluid -->
+    </nav>
+    <!--  End Nav Area -->
+
+    <!-- Strat Header Area -->
+    <header id="home" class="blog-header">
+        <div class="container">
+            <div class="header-content row">
+				<h1>Blog </h1>
+			</div>
+        </div>
+		<!-- End Container -->
+    </header>
+
+    <!-- Strat Blog Single -->
+	<div id="warpper-blog" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <!-- Strat Left Sidber -->
+                <div class="col-sm-12 col-md-8 marg30">
+                    <div class="blog-warpper">
+                        <article class="inner-blog">
+                            <figure class="blog-image-box" data-wow-duration=".5s" data-wow-delay=".5s">
+                                <a href="#"><img class="img-responsive" src="{% static 'img/blog/blog3.JPG' %}" alt=""></a>
+                                <div class="overly">
+                                    <div class="overly-icon">
+                                        <a href="#" class="heart-icon circle"><span class="fa fa-link"></span></a>
+                                    </div>
+                                </div>
+                            </figure>
+                            <h2 class="post-title"><a href="#">Lorem ipsum dolor sit amet consec tetur</a></h2>
+                            <div class="post-meta" data-wow-duration=".5s" data-wow-delay=".5s">
+                                <span><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 23 May</a></span>
+                                <span><a href="#"><i class="fa fa-user" aria-hidden="true"></i> John Doe</a></span>
+                                <span><i class="fa fa-star-o" aria-hidden="true"></i><a href="">Vector</a>, <a href="#">Design</a></span>
+                                <span><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i> 13 Comments</a></span>
+                            </div>
+                            <div class="lower-part">
+                                <div class="post-title"><h3><a href="#">This is post with big title and image</a></h3></div>
+                                <div class="post-text" data-wow-duration=".5s" data-wow-delay=".5s">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                                        massa ipsum, efficitur a fermentum sed, suscipit sit amet arcu. Ut ut
+                                        finibus tortor, eu ultrices turpis. Mauris vitae elit nec diam elementum
+                                        elementum. Mauris ante quam, consequat ac nibh placerat, lacinia
+                                        sollicitudin mi. Duis facilisis nibh quam, sit amet interdum tellus
+                                        sollicitudin tempor. Curabitur aliquam erat in nisl lobortis, ut
+                                        pellentesque lectus viverra. Aenean sodales aliquet arcu at aliquam.
+                                    </p>
+                                    <ul class="blog-post-list fa-ul" data-wow-duration=".5s" data-wow-delay=".5s">
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>Feature Point 1 will appear here</li>
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>Feature Point 1 will appear here</li>
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>Some Poiner goes here</li>
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>Lorem ipsum text will apprear here</li>
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>Lorem ipsum text will apprear here</li>
+                                        <li class="col-sm-6"><i class="fa-li fa fa-circle" aria-hidden="true"></i>You dont need to worry about the payment</li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <div class="section-title" data-wow-duration=".5s" data-wow-delay=".5s">
+                                        <h2>Two Column Text Sample</h2>
+                                        <div class="col-sm-6 col">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                                                massa ipsum, efficitur a fermentum sed, suscipit sit amet arcu. Ut ut
+                                                finibus tortor, eu ultrices turpis.</p>
+                                        </div>
+                                        <div class="co-sm-6 col">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                                                massa ipsum, efficitur a fermentum sed, suscipit sit amet arcu. Ut ut
+                                                finibus tortor, eu ultrices turpis.</p>
+                                        </div>
+                                    </div>
+
+                                    <blockquote data-wow-duration=".5s" data-wow-delay=".5s">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet. Integer posuere erat a ante.</p>
+                                        <small><b>Author Name</b></small>
+                                    </blockquote>
+                                    <div data-wow-duration=".5s" data-wow-delay=".5s">
+                                        <p>
+                                            Praesent ultricies ut ipsum non laoreet. Nunc ac <a href="#">ultricies</a> leo. Nulla ac ultrices arcu. Nullam adipiscing lacus in consectetur posuere. Nunc malesuada tellus turpis, ac pretium orci molestie vel.
+                                            Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                            Fusce non ante sed lorem rutrum feugiat.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                            Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut&nbsp;dignissim consectetur, nulla erat ultrices purus, ut&nbsp;consequat sem elit non sem.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </article>
+                        <!-- End Article -->
+                        <div class="blog-comment">
+                            <div class="section">
+                                <h2>Comments</h2>
+                            </div>
+                            <ul class="comment-list list-unstyled">
+                                <li>
+                                    <a class="pull-left" href="#"><img class="comment-avatar img-circle" src="{% static 'img/team/team-img1.jpg' %}" alt="" height="50" width="50"></a>
+                                    <div class="comment-meta">
+                                        <a href="#">JOHNATHON DOE </a>
+									<span>
+									<em>Sep 07, 2016, at 11:34</em>
+									<a href="#" class="button btn-xs reply pull-right"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;Reply</a>
+									</span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="comment-sub pull-right" >
+                                    <a class="pull-left" href="#"><img class="comment-avatar img-circle" src="{% static 'img/team/team-img2.jpg' %}" alt="" height="50" width="50"></a>
+                                    <div class="comment-meta">
+                                        <a href="#">MATHEW ROOT </a>
+									<span>
+									<em>Sep 08, 2016, at 05:34</em>
+									<a href="#" class="button btn-xs reply pull-right"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;Reply</a>
+									</span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li >
+                                    <a class="pull-left" href="#"><img class="comment-avatar img-circle" src="{% static 'img/team/team-img3.jpg' %}" alt="" height="50" width="50"></a>
+                                    <div class="comment-meta">
+                                        <a href="#">CAMERON DIAZ</a>
+									<span>
+									<em>Sep 09, 2016, at 04:34</em>
+									<a href="#" class="button btn-xs reply pull-right"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;Reply</a>
+									</span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Comment -->
+                        <div class="comment-box">
+                            <div class="section">
+                                <h2>Leave a comment</h2>
+                            </div>
+                            <form>
+                                <div class="form-group col-sm-6 padding">
+                                    <div class="input-group margin-bottom-sm">
+                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                        <input class="form-control" type="text" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group margin-bottom-sm col-sm-6">
+                                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                        <input class="form-control" type="email" placeholder="Email address">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control message" rows="7"  placeholder="Message..." ></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default contact-btn">Submit Comment</button>
+                            </form>
+                        </div>
+                        <!-- End Comment Box -->
+                    </div>
+                </div>
+                <!-- End Left Sidber -->
+
+                <!-- Strat Right Sidber -->
+                <div class="col-sm-12 col-md-4">
+                    <div class="blog-sidber">
+                        <form action="#">
+                            <div class="form-group" >
+                                <input type="text" class="form-control" placeholder="Search">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                        <div class="clearfix"></div>
+                        <!-- End Search Form-->
+                        <div class="category widget">
+                            <div class="section">
+                                <h2>Categories</h2>
+                            </div>
+                            <ul class="cate-list list-unstyled">
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Jobs</a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Travel </a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Logistics</a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Tip & Trick</a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Transport</a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Warehouse</a></li>
+                                <li><span class="fa fa-arrow-circle-right"></span> <a href="#">Photogrohy</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- End Category -->
+                        <div class="recent-post widget">
+                            <div class="section">
+                                <h2>Recent Post</h2>
+                            </div>
+                            <ul class="recent-post-list list-inline">
+                                <li>
+                                    <a href="#"><img src="{% static 'img/blog/blog1.JPG' %}" class="img-responsive" alt="blog01" width="130" height="84"></a>
+                                    <h6><a href="#">Neque porro quisquam est, qui do- lorem ipsum </a></h6>
+                                    <span class="fa fa-clock-o color"></span> &nbsp; 07 Sep 2016
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{% static 'img/blog/blog2.JPG'b %}" class="img-responsive" alt="blog02" width="130" height="84"></a>
+                                    <h6><a href="#">Neque porro quisquam est, qui do- lorem ipsum </a></h6>
+                                    <span class="fa fa-clock-o color"></span>&nbsp; 08 Sep 2016
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{% static 'img/blog/blog3.JPG' %}" class="img-responsive" alt="blog03" width="130" height="84"></a>
+                                    <h6><a href="#">Neque porro quisquam est, qui do- lorem ipsum </a></h6>
+                                    <span class="fa fa-clock-o color"></span>&nbsp; 09 Sep 2016
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- End Recent Post -->
+                        <div class="textwidget">
+                            <div class="content-text">
+                                <h4 class="title">How can we help you?</h4>
+                                <p>Our customer service standards provide information on how we will handle your enquiry. There is also compliments and complaints information to help you when you lodge feedback with us.</p>
+                                <a class="button white" href="#">Contact Us<i class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--  End TextWidget -->
+                        <div class="populer-tag widget">
+                            <div class="section">
+                                <h2>Popular tags</h2>
+                            </div>
+                            <div class="add-btn">
+                                <a class="btn tag_btn" href="#">Home </a>
+                                <a class="btn tag_btn" href="#">Blog</a>
+                                <a class="btn tag_btn" href="#">Bed </a>
+                                <a class="btn tag_btn" href="#">Floor</a>
+                                <a class="btn tag_btn" href="#">Kitchen </a>
+                                <a class="btn tag_btn" href="#">Lounge</a>
+                                <a class="btn tag_btn" href="#">Building </a>
+                                <a class="btn tag_btn" href="#">Secure </a>
+                                <a class="btn tag_btn" href="#">ANALYSIS </a>
+                                <a class="btn tag_btn" href="#">FINANCE </a>
+                                <a class="btn tag_btn" href="#">DIVIDEND </a>
+                                <a class="btn tag_btn" href="#">EMPLOYMENT </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- End Populer Tag-->
+                        <div class="contact-details">
+                            <div class="section">
+                                <h2>Contact details</h2>
+                            </div>
+                            <div class="contact-info">
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                <address>
+                                    <ul class="list-unstyled">
+                                        <li> <span class="fa fa-map-marker"></span><b>Address:</b> 786, Firs Avenue, The Mall, </li>
+                                        <li> <span class="fa fa-mobile"></span> <b>Tel:</b> 01 234-56786 </li>
+                                        <li> <span class="fa fa-mobile"></span> <b>Mobile:</b> : 01 234-56786</li>
+                                        <li> <span class="fa fa-envelope"></span><b>Email:</b> info@zshine.com</li>
+                                    </ul>
+
+                                </address>
+                            </div>
+                        </div>
+                        <!-- End Contact Details -->
+                    </div>
+                </div>
+                <!-- End Right Sidber -->
+            </div>
+        </div>
+    </div>
+
+<!-- Footer Start -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-col">
+                    <h3>About <span>Exshine</span></h3>
+                    <p class="top-para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when.</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Faq</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-col">
+                    <h3>RECENT TWEETS</h3>
+                    <div class="twitter-box">
+                        <p><a href="#">@Company Name</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                    </div>
+                    <div class="twitter-box">
+                        <p><a href="#">@Company Name</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="footer-col address-col">
+                    <h3>CONTACT US</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <ul>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 102, New South Wales, Australia</li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i> Yourmail@gmail.com</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> +012 0244 5528 1520</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Copyright Start -->
+<section class="copyright-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright-col text-center">
+                    <p>Designed by <a href="https://wrapbootstrap.com/user/bdcoder" target="_blank">bdCoder</a>. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

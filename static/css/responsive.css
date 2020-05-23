@@ -1,0 +1,48 @@
+@media only screen and (max-width:1199px) {
+    
+}
+
+@media only screen and (max-width:991px) {
+    .navbar-header img {
+        width: 125px;
+        margin-top: 6px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        padding: 40px 18px 30px;
+    }
+    .navbar-default.affix .navbar-nav > li > a {
+        padding: 25px 18px;
+    }
+    .element-item .hover-img h2 {
+        display: none;
+    }
+
+}
+@media only screen and (max-width:767px) {
+    .navbar-brand {
+        padding: 0;
+    }
+    .affix .navbar-brand {
+        padding: 0;
+    }
+    .navbar-toggle {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    .navbar-default .navbar-nav > li > a {
+        padding: 10px 0 10px !important;
+        border-bottom: 5px solid transparent;
+    }
+    .affix .navbar-nav > li > a:focus, 
+    .affix .navbar-nav > li > a:hover, 
+    .affix .navbar-nav > .active > a {
+        border-bottom: 5px solid #0D70B7; 
+    }
+
+}
