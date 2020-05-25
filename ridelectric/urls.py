@@ -17,9 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from home.views import home
+from home.views import home, contact, polityka_prywatności, regulamin, sklep
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home')
+    path('', home, name='home'),
+    path('contact/', contact, name='contact'),
+    path('polityka_prywatności/', polityka_prywatności, name='polityka_prywatności'),
+    path('regulamin/', regulamin, name='regulamin'),
+    path('sklep/', sklep, name='sklep')
 ]

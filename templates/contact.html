@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{% static 'home/image/ico.png' %}">
+    <title>ridelectric.pl - Contact</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+             });
+    </script>
+</head>
+<body class="body-contact">
+                <!--nevbar-->
+<nav class="nav-extended #37474f blue-grey darken-3 z-depth-5" style="height: 70px; opacity:0.8;" >
+    <a href="/about/">
+        <img class="" id="logo" style="width:170px; height:80px; padding: 5px 0px 15px 15px;"
+             src="{% static 'img/logo.png' %}" alt="image"/>
+    </a>
+    <a class="sidenav-trigger" style="color:black;" href="#" data-target="slide-out" >
+        <i class="material-icons">menu</i>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/"><h5 style="padding: 10px 0px 0px 0px;">Home</h5></a></li>
+        <li><a href="/about"><h5 style="padding: 10px 0px 0px 0px;">About</h5></a></li>
+        <li><a href="/projects"><h5 style="padding: 10px 0px 0px 0px;">Projects</h5></a></li>
+        <li><a href="/skils"><h5 style="padding: 10px 0px 0px 0px;">Skills</h5></a></li>
+        <li><a href="/contact"><h5 style="padding: 10px 0px 0px 0px;">Contact</h5></a></li>
+    </ul>
+</nav>
+<ul id="slide-out" class="sidenav #37474f blue-grey darken-3 z-depth-5" style="opacity:0.8;">
+        <li><a href="/"  style="color:white;">
+        <i class="material-icons"  style="color:white;">home</i>Home</a></li>
+    <li><a href="/about" style="color:white;">
+        <i class="material-icons" style="color:white;">sentiment_very_satisfied</i>About</a></li>
+    <li><a href="/projects" style="color:white;">
+        <i class="material-icons" style="color:white;">subtitles</i>Projects</a></li>
+    <li><a href="/skils" style="color:white;">
+        <i class="material-icons" style="color:white;">folder_shared</i>Skills</a></li>
+    <li><a href="/contact" style="color:white;">
+        <i class="material-icons" style="color:white;">mail</i>Contact</a></li>
+</ul>
+<p></p>
+
+<div class="container #37474f blue-grey darken-3 z-depth-5" style="padding: 15px 15px 15px 15px;">
+    <div class="container">
+        <div class="center " style="color:grey;">
+            <h5 style="padding: 40px 0px 0px 0px;">Do You have any questions? Use the form!</h5>
+            <h5 style="padding: 0px 0px 40px 0px;">DiddyChriss is waiting for Your message 👍</h5>
+            <h5 style="color:white;">{{confirmation_text}}</h5>
+            <h6 style="color:white; padding:0px 0px 40px 0px;"> {{send}} </h6>
+            <p></p>
+        </div>
+            <div class="row">
+                <form class="col s12" action="." method="POST"> {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">account_circle</i>
+                          <input id="firstname" name="name" type="text" class="validate" required>
+                          <label for="firstname">FirstName*</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">accessibility</i>
+                          <input id="surname" name="surname" type="text" class="validate">
+                          <label for="surname">LastName</label>
+                        </div>
+                     </div>
+                      <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">business_center</i>
+                          <input  id="company" name="company" type="text" class="validate">
+                          <label for="company">Company</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">email</i>
+                          <input id="email" name="email" type="email" class="validate" required>
+                          <label for="email">Email*</label>
+                        </div>
+                      </div>
+                        <div class="row">
+                              <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">mode_edit</i>
+                                    <textarea id="question" name="question" class="materialize-textarea" required>
+                                    </textarea>
+                                    <label for="question">Question*</label>
+                                </div>
+                              </div>
+                          </div>
+                        <p>
+                          <label>
+                            <input type="checkbox" name="confirmation" class="filled-in" checked="checked" />
+                            <span> Send copy to My email address</span>
+                          </label>
+                        </p>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Send
+                            <i class="material-icons right">send</i>
+                        </button>
+                </form>
+              </div>
+        <div class="row container center" style="padding: 30px 0px 30px 0px;">
+            <a href="https://www.facebook.com/ridelectricKRK/">
+                <img class="ico-about" src="{% static 'home/image/about/logo_fb2.png' %}">
+            </a>
+            <a href="https://www.ridelectric.pl/">
+                <img class="ico-about" src="{% static 'home/image/ico.png' %}">
+            </a>
+            <a href="https://github.com/DiddyChriss">
+                <img class="ico-about" src="{% static 'home/image/gh.png' %}">
+            </a>
+            <a href="https://www.linkedin.com/in/krzysztof-%C5%BCak-4a019512a?trk=people-guest_people_search-card">
+                <img class="ico-about" src="{% static 'home/image/in.png' %}">
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

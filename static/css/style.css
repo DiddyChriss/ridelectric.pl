@@ -283,21 +283,21 @@ nav {
     transform: translateY(-25%);
 }
 .slide-1 {
-    background: url(../img/slider/1.jpg);
+    background: url("{% static 'img/slider/1.jpg' %}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 .slide-2 {
-    background: url(../img/slider/2.jpg);
+    background: url("{% static 'img/slider/2.jpg' %}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 .slide-3 {
-    background: url(../img/slider/3.jpg);
+    background: url("{% static 'img/slider/3.jpg' %}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -441,7 +441,7 @@ nav {
 /*  5. Team Area
 /*--------------------------------*/
 #team {
-    background: url("../img/parallex/team-bg.jpg");
+    background: url("{% static 'img/parallex/team-bg.jpg' %}");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -591,7 +591,7 @@ nav {
 /*  7. Pricing Area
 /*--------------------------------*/
 .bd-pricing-area {
-    background: url("../img/parallex/services-bg.jpg");
+    background: url("{% static 'img/parallex/services-bg.jpg' %}");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -937,7 +937,7 @@ nav {
 /*  11. Blog Single Page
 /*--------------------------------*/
 .blog-header {
-    background: rgba(0, 0, 0, 0) url("../img/parallex/header4.jpg");
+    background: rgba(0, 0, 0, 0) url("{% static 'img/parallex/header4.jpg' %}");
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1402,7 +1402,7 @@ nav {
 /*  12. Contact Area
 /*--------------------------------*/
 #contact {
-    background: url("../img/parallex/contact-bg.jpg");
+    background: url("{% static 'img/parallex/contact-bg.jpg' %}");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
