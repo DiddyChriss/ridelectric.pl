@@ -313,7 +313,7 @@ Slider navigation
     transform: translateX(-50%) translateY(-50%);
     height: 16px;
     width: 16px;
-    background: url(../cd-icon-arrows-mini.svg) no-repeat 0 0;
+    background: url("img/tlosklepu.png");
 }
 
 .cd-radial-slider-navigation li a:hover {
@@ -330,7 +330,7 @@ Slider navigation
     .cd-radial-slider-navigation li a::after {
         height: 56px;
         width: 48px;
-        background-image: url(../cd-icon-arrows.svg);
+        background-image: url(../cd-icon-arrows.svg);   <!-------------------------------->
     }
 
     .cd-radial-slider-navigation li:last-of-type a::after {

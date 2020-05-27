@@ -5,10 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'home/home.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" href="{% static 'home/image/ico.png' %}">
+    <link rel="shortcut icon" href="{% static 'img/ficon.png' %}">
     <title>ridelectric.pl - Contact</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -23,9 +22,9 @@
              });
     </script>
 </head>
-<body class="body-contact">
+<body class="body-contact" style="background-color:#C0C0C0;">
                 <!--nevbar-->
-<nav class="nav-extended #37474f blue-grey darken-3 z-depth-5" style="height: 70px; opacity:0.8;" >
+<nav class="nav-extended #37474f blue-grey darken-3 z-depth-5" style="height: 70px; opacity:0.9;" >
     <a href="/about/">
         <img class="" id="logo" style="width:170px; height:80px; padding: 5px 0px 15px 15px;"
              src="{% static 'img/logo.png' %}" alt="image"/>
@@ -35,31 +34,37 @@
     </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/"><h5 style="padding: 10px 0px 0px 0px;">Home</h5></a></li>
-        <li><a href="/about"><h5 style="padding: 10px 0px 0px 0px;">About</h5></a></li>
-        <li><a href="/projects"><h5 style="padding: 10px 0px 0px 0px;">Projects</h5></a></li>
-        <li><a href="/skils"><h5 style="padding: 10px 0px 0px 0px;">Skills</h5></a></li>
-        <li><a href="/contact"><h5 style="padding: 10px 0px 0px 0px;">Contact</h5></a></li>
+        <li><a href="/#about"><h5 style="padding: 10px 0px 0px 0px;">O Nas</h5></a></li>
+        <li><a href="/#Services"><h5 style="padding: 10px 0px 0px 0px;">Instalacje Fotowoltaiczne</h5></a></li>
+        <li><a href="/sklep"><h5 style="padding: 10px 0px 0px 0px;">Sklep</h5></a></li>
+        <li><a href="/contact"><h5 style="padding: 10px 0px 0px 0px;">Kontakt</h5></a></li>
     </ul>
 </nav>
 <ul id="slide-out" class="sidenav #37474f blue-grey darken-3 z-depth-5" style="opacity:0.8;">
         <li><a href="/"  style="color:white;">
         <i class="material-icons"  style="color:white;">home</i>Home</a></li>
-    <li><a href="/about" style="color:white;">
-        <i class="material-icons" style="color:white;">sentiment_very_satisfied</i>About</a></li>
-    <li><a href="/projects" style="color:white;">
-        <i class="material-icons" style="color:white;">subtitles</i>Projects</a></li>
-    <li><a href="/skils" style="color:white;">
-        <i class="material-icons" style="color:white;">folder_shared</i>Skills</a></li>
+    <li><a href="/#about" style="color:white;">
+        <i class="material-icons" style="color:white;">sentiment_very_satisfied</i>O Nas</a></li>
+    <li><a href="/#Services" style="color:white;">
+        <i class="material-icons" style="color:white;">subtitles</i>Instalacje Fotowoltaiczne</a></li>
+    <li><a href="/sklep" style="color:white;">
+        <i class="material-icons" style="color:white;">folder_shared</i>Sklep</a></li>
     <li><a href="/contact" style="color:white;">
-        <i class="material-icons" style="color:white;">mail</i>Contact</a></li>
+        <i class="material-icons" style="color:white;">mail</i>Kontakt</a></li>
 </ul>
+
 <p></p>
 
 <div class="container #37474f blue-grey darken-3 z-depth-5" style="padding: 15px 15px 15px 15px;">
     <div class="container">
         <div class="center " style="color:grey;">
-            <h5 style="padding: 40px 0px 0px 0px;">Do You have any questions? Use the form!</h5>
-            <h5 style="padding: 0px 0px 40px 0px;">DiddyChriss is waiting for Your message 👍</h5>
+            <h5 style="padding: 40px 0px 0px 0px;">Masz pyania? A może jesteś zainteresowany produktem?</h5>
+            <h5 style="padding: 0px 0px 40px 0px;">Czekamy na Twoją wiadomość 👍</h5>
+            <h5 style="padding: 0px 0px 0px 0px;">beExcellent</h5>
+            <h5 style="padding: 0px 0px 0px 0px;">ul.Gaik 45a/4</h5>
+            <h5 style="padding: 0px 0px 0px 0px;">31-338 Kraków, Polska</h5>
+            <h5 style="padding: 0px 0px 0px 0px;">info@ridelectric.pl</h5>
+            <h5 style="padding: 0px 0px 40px 0px;">+ 48 796 720 019</h5>
             <h5 style="color:white;">{{confirmation_text}}</h5>
             <h6 style="color:white; padding:0px 0px 40px 0px;"> {{send}} </h6>
             <p></p>
@@ -70,19 +75,19 @@
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">account_circle</i>
                           <input id="firstname" name="name" type="text" class="validate" required>
-                          <label for="firstname">FirstName*</label>
+                          <label for="firstname">Imię*</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">accessibility</i>
                           <input id="surname" name="surname" type="text" class="validate">
-                          <label for="surname">LastName</label>
+                          <label for="surname">Nazwisko</label>
                         </div>
                      </div>
                       <div class="row">
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">business_center</i>
                           <input  id="company" name="company" type="text" class="validate">
-                          <label for="company">Company</label>
+                          <label for="company">Firma</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">email</i>
@@ -96,14 +101,14 @@
                                     <i class="material-icons prefix">mode_edit</i>
                                     <textarea id="question" name="question" class="materialize-textarea" required>
                                     </textarea>
-                                    <label for="question">Question*</label>
+                                    <label for="question">Wiadomość*</label>
                                 </div>
                               </div>
                           </div>
                         <p>
                           <label>
                             <input type="checkbox" name="confirmation" class="filled-in" checked="checked" />
-                            <span> Send copy to My email address</span>
+                            <span>Wyślij potwierdzenie na mój adres E-mail</span>
                           </label>
                         </p>
                         <button class="btn waves-effect waves-light" type="submit" name="action">Send
@@ -111,18 +116,12 @@
                         </button>
                 </form>
               </div>
-        <div class="row container center" style="padding: 30px 0px 30px 0px;">
-            <a href="https://www.facebook.com/ridelectricKRK/">
-                <img class="ico-about" src="{% static 'home/image/about/logo_fb2.png' %}">
+        <div class="row container center" style="padding: 30px 0px 30px 0px; height:20; width:20;">
+            <a href="https://www.facebook.com/ridelectricKRK/" >
+                <img class="ico-about" src="{% static 'img/fb.png' %}" style="height:20;">
             </a>
             <a href="https://www.ridelectric.pl/">
-                <img class="ico-about" src="{% static 'home/image/ico.png' %}">
-            </a>
-            <a href="https://github.com/DiddyChriss">
-                <img class="ico-about" src="{% static 'home/image/gh.png' %}">
-            </a>
-            <a href="https://www.linkedin.com/in/krzysztof-%C5%BCak-4a019512a?trk=people-guest_people_search-card">
-                <img class="ico-about" src="{% static 'home/image/in.png' %}">
+                <img class="ico-about" src="{% static 'img/ficon.png' %}">
             </a>
         </div>
     </div>

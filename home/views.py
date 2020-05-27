@@ -25,10 +25,10 @@ def contact(request):
         Contact_models.objects.create(name=name, surname=surname, company=company, email=email, question=question)
 
         if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
-            send            = 'A copy of the form has been sent to Your email address: {}'.format(email)
+            send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
 
-            subject         = 'DiddyChriss Portfolio copy of the form'                      # subject of email
-            message         = 'Hello, Thank You for using DiddyChriss contact forms!'       # reserve messego
+            subject         = 'Formularz kontaktowy ridelectric.pl - kopia'                      # subject of email
+            message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'       # reserve messego
             from_email      = settings.EMAIL_HOST_USER                      # adres from send and details from settings
             recipient_list  = email                                         # delivery email
             html_message    = loader.render_to_string('emailsend.html',
@@ -45,7 +45,7 @@ def contact(request):
         else:
             send = ''
 
-        confirmation_text = 'Thank You {} {} for using the contact form!'.format(name.capitalize(),
+        confirmation_text = 'Dziękujemy {} {} za skorzystanie z Formularza Kontaktowego!'.format(name.capitalize(),
                                                                                  surname.capitalize()
                                                                                  )
 

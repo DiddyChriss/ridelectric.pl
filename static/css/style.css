@@ -132,9 +132,9 @@ ul li {
     text-align: center;
     color: #ffffff;
     position: absolute;
-    top: 50%;
+
+    margin-left: -12px;top: 50%;
     left: 50%;
-    margin-left: -12px;
     margin-top: -12px;
     width: 25px;
     height: 25px;
@@ -189,7 +189,7 @@ nav {
 }
 
 .navbar-brand > img {
-    display: block;
+    display: block
 }
 
 .navbar-nav > li > a {
@@ -198,7 +198,9 @@ nav {
 }
 
 .navbar-default {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    background: black none repeat scroll 0 0 !important;  /* black--------rgba(0, 0, 0, 0)-----------------*/
+    height: 80px;
+    top: 1%;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
@@ -207,8 +209,8 @@ nav {
     color: #fff;
 }
 .navbar-header img {
-    width: 160px;
-    height: auto;
+    width: 130px;
+    height: 50px;
 }
 .affix .navbar-brand {
     padding: 0;
@@ -222,7 +224,7 @@ nav {
     color: #fff;
     font-size: 16px;
     border-bottom: 10px solid transparent;
-    padding: 50px 26px 35px;
+    padding: 30px 26px 35px;
 }
 .navbar-default .navbar-nav > li > a:hover {
     color: #0195FF;
@@ -283,21 +285,22 @@ nav {
     transform: translateY(-25%);
 }
 .slide-1 {
-    background: url("{% static 'img/slider/1.jpg' %}");
+    background: url("img/slider/1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 .slide-2 {
-    background: url("{% static 'img/slider/2.jpg' %}");
+
+    background: url("img/slider/2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 .slide-3 {
-    background: url("{% static 'img/slider/3.jpg' %}");
+    background: url("img/slider/3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -441,7 +444,8 @@ nav {
 /*  5. Team Area
 /*--------------------------------*/
 #team {
-    background: url("{% static 'img/parallex/team-bg.jpg' %}");
+    background: url("img/slider/1.jpg");
+    background: url("img/parallex/team-bg.jpg");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -591,7 +595,7 @@ nav {
 /*  7. Pricing Area
 /*--------------------------------*/
 .bd-pricing-area {
-    background: url("{% static 'img/parallex/services-bg.jpg' %}");
+    background: url("img/1.jpg");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -937,7 +941,8 @@ nav {
 /*  11. Blog Single Page
 /*--------------------------------*/
 .blog-header {
-    background: rgba(0, 0, 0, 0) url("{% static 'img/parallex/header4.jpg' %}");
+
+    background: rgba(0, 0, 0, 0) url("img/parallex/header4.jpg");
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1402,7 +1407,7 @@ nav {
 /*  12. Contact Area
 /*--------------------------------*/
 #contact {
-    background: url("{% static 'img/parallex/contact-bg.jpg' %}");
+    background: url("img/parallex/contact-bg.jpg");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
