@@ -31,7 +31,7 @@ Project presents Website with description  of why it's worth to have photovoltai
 ####  for sending copy of the form to the email adress. Also contains contact details
 
 ## Code Examples
-#####'if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
+##### 'if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
 #####    send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
 #####    subject         = 'Formularz kontaktowy ridelectric.pl - kopia'                      # subject of email
 #####    message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'       # reserve messego
