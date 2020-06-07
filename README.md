@@ -6,8 +6,6 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Instruction](#Instructions)
-* [CodeExamples](#CodeExamples)
-* [Features](#features)
 * [Status](#status)
 * [Contact](#contact)
 
@@ -29,33 +27,6 @@ Project presents Website with description  of why it's worth to have photovoltai
 #### Tab Contact contains simple contact form using database, with obligatory Firstname form, Email
 #### and Question form. Forms Surname and Company are optional.The contact form contains options
 ####  for sending copy of the form to the email adress. Also contains contact details
-
-## Code Examples
-##### 'if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
-#####    send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
-#####    subject         = 'Formularz kontaktowy ridelectric.pl - kopia'                      # subject of email
-#####    message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'       # reserve messego
-#####    from_email      = settings.EMAIL_HOST_USER                      # adres from send and details from settings
-#####    recipient_list  = email                                         # delivery email
-#####    html_message    = loader.render_to_string('emailsend.html',
-#####                                                {
-#####                                                     'name': name.capitalize(),
-#####                                                     'surname': surname.capitalize(),
-#####                                                     'question': question
-#####                                                }
-#####                                                )     # render body from html(templates)
-#####    send_mail(subject, message, from_email, [recipient_list], fail_silently=True, auth_user=None,
-#####                auth_password=None, html_message=html_message      # send_mail function
-#####                )
-##### else:
-#####      send = ''
-#####    confirmation_text = 'Dziękujemy {} {} za skorzystanie z Formularza Kontaktowego!'.format(name.capitalize(),
-#####                                                                                 surname.capitalize()
-#####                                                                                 )`
-
-## Features
-List of features ready and TODOs for future development
-* contact
 
 ## Status
 Project is: _in progress
