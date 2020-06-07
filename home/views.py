@@ -28,8 +28,8 @@ def contact(request):
             send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
 
             subject         = 'Formularz kontaktowy ridelectric.pl - kopia'                      # subject of email
-            message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'       # reserve messego
-            from_email      = settings.EMAIL_HOST_USER                      # adres from send and details from settings
+            message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'  # reserve messego
+            from_email      = settings.EMAIL_HOST_USER                     # adres from send and details from settings
             recipient_list  = email                                         # delivery email
             html_message    = loader.render_to_string('emailsend.html',
                                                       {
