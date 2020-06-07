@@ -31,7 +31,6 @@ Tab Contact contains simple contact form using database, with obligatory Firstna
   for sending copy of the form to the email adress. Also contains contact details
 
 ## Code Examples
-Show examples of usage:
 'if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
     send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
 
