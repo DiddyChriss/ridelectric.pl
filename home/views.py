@@ -11,24 +11,24 @@ def home(request):
     return render(request, 'index.html', {})    #create home view
 
 def contact(request):
-    name = request.POST.get("name")                                             # create variable as request by POST
-    surname = request.POST.get("surname")
-    company = request.POST.get("company")
-    email = request.POST.get("email")
-    question = request.POST.get("question")
-    confirmation = request.POST.get("confirmation")
-
     send = ""                                           # create empty variables and lists
     confirmation_text = ""
 
     if request.method == "POST":                       # create data from form (click Botton)
+        name = request.POST.get("name")  # create variable as request by POST
+        surname = request.POST.get("surname")
+        company = request.POST.get("company")
+        email = request.POST.get("email")
+        question = request.POST.get("question")
+        confirmation = request.POST.get("confirmation")
+
         Contact_models.objects.create(name=name, surname=surname, company=company, email=email, question=question)
 
         if confirmation == 'on':                         # if checkbox confirmation checked on/off def... variable send
             send            = 'Kopia formularza kontaktowego została wysłana na adres e-mail: {}'.format(email)
 
             subject         = 'Formularz kontaktowy ridelectric.pl - kopia'                      # subject of email
-            message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'       # reserve messego
+            message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'   # reserve messego
             from_email      = settings.EMAIL_HOST_USER                      # adres from send and details from settings
             recipient_list  = email                                         # delivery email
             html_message    = loader.render_to_string('emailsend.html',
