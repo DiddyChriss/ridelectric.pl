@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon" href="{% static 'img/ficon.png' %}">
     <title>ridelectric.pl - Contact</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+    <!-- Compiled and minified CSS -->
+    <link type="text/css" rel="'stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
@@ -26,18 +27,18 @@
                 <!--nevbar-->
 <nav class="nav-extended #37474f blue-grey darken-3 z-depth-5" style="height: 70px; opacity:0.9;" >
     <a href="/">
-        <img class="" id="logo" style="width:170px; height:80px; padding: 5px 0px 15px 15px;"
+        <img id="logo" style="width: 170px; height: 80px; padding: 5px 0px 15px 15px;"
              src="{% static 'img/logo.png' %}" alt="image"/>
     </a>
     <a class="sidenav-trigger" style="color:black;" href="#" data-target="slide-out" >
         <i class="material-icons">menu</i>
     </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/"><h5 style="padding: 10px 0px 0px 0px;">Home</h5></a></li>
-        <li><a href="/#about"><h5 style="padding: 10px 0px 0px 0px;">O Nas</h5></a></li>
-        <li><a href="/#Services"><h5 style="padding: 10px 0px 0px 0px;">Instalacje Fotowoltaiczne</h5></a></li>
-        <li><a href="/sklep"><h5 style="padding: 10px 0px 0px 0px;">Sklep</h5></a></li>
-        <li><a href="/contact"><h5 style="padding: 10px 0px 0px 0px;">Kontakt</h5></a></li>
+        <li><a href="/"><h7>Home</h7></a></li>
+        <li><a href="/#about"><h7 >O Nas</h7></a></li>
+        <li><a href="/#Services"><h7>Instalacje Fotowoltaiczne</h7></a></li>
+        <li><a href="/sklep"><h7>Sklep</h7></a></li>
+        <li><a href="/contact"><h7>Kontakt</h7 style="padding: 10px;"></a></li>
     </ul>
 </nav>
 <ul id="slide-out" class="sidenav #37474f blue-grey darken-3 z-depth-5" style="opacity:0.8;">
@@ -60,10 +61,10 @@
         <div class="center " style="color:grey;">
             <h5 style="padding: 40px 0px 0px 0px;">Masz pyania? A może jesteś zainteresowany produktem?</h5>
             <h5 style="padding: 0px 0px 40px 0px;">Czekamy na Twoją wiadomość 👍</h5>
-            <h5 style="padding: 0px 0px 0px 0px;">beExcellent</h5>
-            <h5 style="padding: 0px 0px 0px 0px;">ul.Gaik 45a/4</h5>
-            <h5 style="padding: 0px 0px 0px 0px;">31-338 Kraków, Polska</h5>
-            <h5 style="padding: 0px 0px 0px 0px;">info@ridelectric.pl</h5>
+            <h5>beExcellent</h5>
+            <h5>ul.Gaik 45a/4</h5>
+            <h5>31-338 Kraków, Polska</h5>
+            <adress><a href="mailto: diddychriss@gmail.com"><h5>info@ridelectric.pl</h5></a></adress>
             <h5 style="padding: 0px 0px 40px 0px;">+ 48 796 720 019</h5>
             <h5 style="color:white;">{{confirmation_text}}</h5>
             <h6 style="color:white; padding:0px 0px 40px 0px;"> {{send}} </h6>
@@ -116,9 +117,9 @@
                         </button>
                 </form>
               </div>
-        <div class="row container center" style="padding: 30px 0px 30px 0px; height:20; width:20;">
+        <div class="row container center" style="padding: 30px 0px 30px 0px;">
             <a href="https://www.facebook.com/ridelectricKRK/" >
-                <img class="ico-about" src="{% static 'img/fb.png' %}" style="height:20;">
+                <img class="ico-about" src="{% static 'img/fb.png' %}"">
             </a>
             <a href="https://www.ridelectric.pl/">
                 <img class="ico-about" src="{% static 'img/ficon.png' %}">
