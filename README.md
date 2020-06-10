@@ -29,7 +29,7 @@ Project presents Website with description  of why it's worth to have photovoltai
 ####  for sending copy of the form to the email adress. Also contains contact details
 
 ## Status
-Project is: _in progress
+Project is: _in progress(for pandemic - taking this opportunity - the e-store is under reconstruction)
 
 ## Contact
 Created by [DiddyChriss] (http://chriss.pythonanywhere.com/) - feel free to contact me!
