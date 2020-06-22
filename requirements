@@ -1,0 +1,6 @@
+Python 3.8+
+Django 3.0.6
+django.shortcuts-render
+django.core.mail-send_mail
+django.template-loader
+SQLite 3+
