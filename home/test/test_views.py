@@ -28,9 +28,13 @@ class TestViews(TestCase):
 
         self.assertEquals(response.status_code, 200)
 
+        self.assertTemplateUsed(response, 'contact.html')
+
         self.assertEquals(self.contact_data.name, 'Diddy')
 
-        self.assertTemplateUsed(response, 'contact.html')
+
+
+
 
 
 
