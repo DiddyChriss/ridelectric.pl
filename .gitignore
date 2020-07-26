@@ -1,2 +1,6 @@
 *.pyc
 db.sqlite3
+templates/shop_test.html
+templates/shop_test_II.html
+templates/test.html
+shop/views.py
