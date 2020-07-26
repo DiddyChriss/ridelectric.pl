@@ -1,0 +1,16 @@
+{% load static %}
+
+
+<body>
+<p>{{ objects.name_shop }}</p>
+<p>{{ objects.coment_shop }}</p>
+<p>{{ objects.price }}</p>
+
+
+<form action = "." method = 'POST' style="color: blue"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type = 'submit'  value = 'save'/>
+</form>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # ridelectric.pl
 > It's Website present Photovoltaic installation Offers and e-store with electromobility 
-> and photovoltaics components.
+> and photovoltaics components, connecting with MySQL Data Base.
 
 ## Table of contents
 * [General info](#general-info)
@@ -18,6 +18,7 @@ Project presents Website with description  of why it's worth to have photovoltai
 * Python Django - version 3.0.6
 * HTML/CSS 
 * JavaScript 
+* MySQL
 
 ## Instructions
 #### Tab home contains carousel with link to "Photovoltaic installation", e-store and contact tabs.

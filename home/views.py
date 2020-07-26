@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.template import loader
 from django.conf import settings
 
-from .models import Contact_models
+from home.models import Contact_models
 
 # Create your views here.
 

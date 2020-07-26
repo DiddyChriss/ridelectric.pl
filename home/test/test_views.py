@@ -26,11 +26,14 @@ class TestViews(TestCase):
             'question': 'test question'
         })
 
+        self.assertTrue(response, True)
+
         self.assertEquals(response.status_code, 200)
 
         self.assertTemplateUsed(response, 'contact.html')
 
-        self.assertEquals(self.contact_data.name, 'Diddy')
+    
+
 
 
 
