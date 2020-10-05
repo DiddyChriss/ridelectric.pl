@@ -1,0 +1,38 @@
+{% extends 'shop/base_shop.html' %}
+{% load static %}
+
+{% block productshop %}
+
+<div class="card text-center">
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'info' in message.tags %}
+                <div class="alert alert-primary my-3 mx-3" role="alert">
+                    {{ message }}
+                </div>
+            {% elif 'error' in message.tags %}
+                <div class="alert alert-danger my-3 mx-3" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <img src="{{ object.image_product.url }}" class="col-12 col-md-10 col-lg-8 my-3 mx-auto" alt="...">
+    <div class="container col-12 col-lg-10">
+        <div class="card-header">
+             <h5 class="card-title">{{ object.title_product }}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ object.description_product }}</p>
+            <form class="form-inline " action='.' method='POST'> {% csrf_token %}
+                <button type="submit" class="btn btn-primary mx-auto" name="add_to_cart">Dodaj do Koszyka</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            {{ object.price_product }} PLN netto
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

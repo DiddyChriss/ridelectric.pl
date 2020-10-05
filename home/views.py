@@ -32,7 +32,7 @@ def contact(request):
             message         = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'  # reserve messego
             from_email      = settings.EMAIL_HOST_USER                     # adres from send and details from settings
 
-            recipient_list  = email                                         # delivery email
+            recipient_list  = email, 'diddychriss@gmail.com'                                        # delivery email
             html_message    = loader.render_to_string('emailsend.html',
                                                       {
                                                           'name': name.capitalize(),

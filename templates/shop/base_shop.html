@@ -1,0 +1,151 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <!-- Google Fonts Roboto -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css2-shop/style.css' %}" type="text/css">
+    <title>ridelectric - shop</title>
+</head>
+<body class="body-standard">
+    <div class="container">
+        <!-- comerc -->
+        <div class="alert alert-primary shadow-sm p-3 mb-5 rounded" role="alert">
+          <p>advertisement!</p>
+        </div>
+        <!-- end comerc -->
+    </div>
+    <nav class="navbar navbar-light bg-primary shadow-sm mb-1 rounded">
+            <a class="navbar-brand mr-auto" href="/">
+                <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
+            </a>
+            <div class="row ">
+                <a class="badge badge-pill badge-light w-25 p-3 mx-auto" href="/sklep">
+                    <span class="">e-Shop</span>
+                </a>
+                <p class="badge-pill badge-light my-1 mx-auto">Obecnie w sklepie znajdują się produkty testowe..
+                    trwaja prace nad stroną.. prosimy o cierpliwość..</p>
+            </div>
+            <a class="ml-auto" href="/">
+                <button type="button" class="btn btn-outline-light ml-auto"><< HOME</button>
+            </a>
+    </nav>
+    <nav class="navbar navbar-light bg-primary shadow-sm p-2 mb-2 rounded">
+            <form class="form-inline" action='.' method='POST'> {% csrf_token %}
+                {{ form.search_product }}
+                <button type="submit" class="btn btn-outline-light">Szukaj</button>
+            </form>
+            <a class="badge badge-pill badge-light mx-2 px-2 py-2 ml-auto" href="{% url 'shop:cart' %}">
+                {% if shop_products_cart.count == 0 %}
+                    <span class="mr-1">
+                    0
+                    </span>
+                {% else %}
+                    <span class="badge badge-danger z-depth-1 mr-1">
+                        {{ shop_products_cart.count }}
+                    </span>
+                {% endif %}
+                <i class="fas fa-shopping-cart mr-1"></i>
+                <span class="clearfix d-none d-sm-inline-block">Koszyk</span>
+            </a>
+    </nav>
+    <div class="container row mx-auto">
+        <div class="container col-12 col-md-3 col-lg-2">
+            <div class="alert alert-primary shadow-sm p-2 mb-5 rounded" role="alert">
+                <!-- Mobile/nevbar -->
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarToggleExternalContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse nav nav-pills flex-column" id="navbarToggleExternalContent">
+                            <a class="nevbar nav-link mx-n2 font-weight-bold" href="/sklep/EV">Stacje EV</a>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ml-3 my-1" href="/sklep/EV7">7 kW</a>
+                            <a class="nav-link ml-3 my-1" href="/sklep/EV22">22 kW</a>
+                            <a class="nav-link ml-3 my-1" href="/sklep/EVcable">Kable</a>
+                        </nav>
+                            <a class="nav-link mx-n2 font-weight-bold" href="/sklep/PV">Produkty PV</a>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ml-3 my-1" href="/sklep/PVmoduly">Panele</a>
+                            <a class="nav-link ml-3 my-1" href="/sklep/PVinwertery">Inwertery</a>
+                            <a class="nav-link ml-3 my-1" href="/sklep/PVpozostale">Pozostałe</a>
+                        </nav>
+                    </div>
+                </nav>
+                <!-- end of mobile bar -->
+            </div>
+        </div>
+            <!-- container products -->
+        <div class="container mx-auto col-11 col-md-9 col-lg-8 row alert alert-secondary shadow-sm mb-5 rounded"
+             role="alert">
+        {% block productshop %}
+
+        {% endblock %}
+        </div>
+        <!-- comtainer with products -->
+        <div class="container col-11 col-md-10 col-lg-2 ">
+            <!-- comerc2 -->
+            <div class="alert alert-primary shadow-sm p-3 mb-5 rounded" role="alert">
+              advertisement 2!
+            </div>
+            <!-- end comerc -->
+        </div>
+    </div>
+
+<nav class="navbar bottom navbar-light bg-primary shadow-sm mb-1 rounded">
+    <a class="navbar-brand mr-auto my-2" href="/">
+        <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
+    </a>
+    <div class="alert alert-info col-12 col-md-3 col-lg-3 mb-n1" role="alert">
+        <a href="/regulamin" class="alert-link"><p>Regulamin</p></a>
+        <a href="/polityka_prywatności" class="alert-link"><p>Polityka Prywatności</p></a>
+        <a href="https://www.facebook.com/ridelectricKRK/" class="alert-link"><p>Facebook: @ridelectricKRK</p></a>
+    </div>
+    <div class="alert alert-info col-12 col-md-6 col-lg-6 mx-auto mb-n1" role="alert">
+        <div class="row">
+            <div class="col-6">
+                <a href="/contact" class="alert-link"><p class="text-center">Kontakt</p></a>
+                <a href="/contact" class="alert-link"><p class="text-center">beExcellent</p></a>
+            </div>
+            <div class="col-6">
+                <a href="/contact" class="alert-link">
+                    <p class="font-weight-normal">Gaik 45a/4, 31-338 Kraków, Polska</p>
+                </a>
+                <a href="/contact" class="alert-link"><p class="font-weight-normal">info@ridelectric.pl</p></a>
+                <a href="/contact" class="alert-link"><p class="font-weight-normal">+48 796 720 019</p></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+

@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'ridelectric.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ridelectricdb',
+        'NAME': 'ridelectric',
         'USER': 'root',
         'PASSWORD': 'Terazpa$y1',
         'HOST': 'localhost',
@@ -133,3 +134,6 @@ EMAIL_HOST_USER     = 'diddychriss@gmail.com'
 EMAIL_HOST_PASSWORD = 'Iamtheone1'
 EMAIL_USE_TLS       = True
 EMAIL_USE_SSL       = False
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

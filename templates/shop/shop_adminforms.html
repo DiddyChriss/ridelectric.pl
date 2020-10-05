@@ -1,0 +1,12 @@
+{% load static %}
+
+
+<body>
+
+<form action = "." method = 'POST' style="color: blue"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type = 'submit'  value = 'save'/>
+</form>
+
+</body>
+</html>
