@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd)zi)-gj6prr)_$fe_^&kh@y#7-f%zyp!_v3bx%ue20s0fw1f#'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'ridelectric.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ridelectric',
-        'USER': 'root',
-        'PASSWORD': 'Terazpa$y1',
-        'HOST': 'localhost',
+        'ENGINE': '-------',
+        'NAME': '------',
+        'USER': '----',
+        'PASSWORD': '-------',
+        'HOST': '-------',
         'Port': '3306',
     }
 }
@@ -130,8 +130,8 @@ STATIC_ROOT = []
 
 EMAIL_HOST          = 'smtp.gmail.com'
 EMAIL_PORT          = 587
-EMAIL_HOST_USER     = 'diddychriss@gmail.com'
-EMAIL_HOST_PASSWORD = 'Iamtheone1'
+EMAIL_HOST_USER     = '---------'
+EMAIL_HOST_PASSWORD = '--------'
 EMAIL_USE_TLS       = True
 EMAIL_USE_SSL       = False
 
