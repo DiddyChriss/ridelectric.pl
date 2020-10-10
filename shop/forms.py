@@ -1,29 +1,16 @@
 from django import forms
-from shop.models import shop_products
+from .models import *
 
 
 class Search_form(forms.Form):
     search_product          = forms.CharField(label='', widget=forms.TextInput(
                                                 attrs={
-                                                    "size": 20,
+                                                    "size": 15,
                                                     "placeholder": "Szukaj",
                                                     "class": "col form-control shadow-sm p-1 mx-1 rounded"
                                                 }
                                             )
                                        )
-
-class Quantity_form(forms.Form):
-    quantity = forms.IntegerField(label='',
-                                  required=True,
-                                  initial=1,
-                                  max_value=99,
-                                  min_value=0,
-                                  widget=forms.NumberInput(
-                                      attrs={
-                                          "size": 5
-                                      }
-                                  )
-                                  )
 
 # class ProductShop(forms.ModelForm):
 #     title_product  = forms.CharField(label='Name', widget=forms.TextInput(

@@ -12,7 +12,7 @@
                     <h5 class="card-title my-n3">{{ id.title_product }}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ id.price_product }} PLN netto</li>
+                    <li class="list-group-item">{{ id.price_product|floatformat:2 }} PLN netto</li>
                 </ul>
                 <div class="card-body my-n3">
                     <a href="{{ id.get_absolute_url }}" class="card-link">Szczegóły Produktu</a>

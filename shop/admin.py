@@ -1,7 +1,10 @@
 from django.contrib import admin
-from shop.models import shop_products, shop_products_cart
+from .models import *
 
 
-admin.site.register(shop_products)
-admin.site.register(shop_products_cart)
+admin.site.register(Customer)
+admin.site.register(Product)
+admin.site.register(Order)
+admin.site.register(OrderItem)
+admin.site.register(ShoppingAddress)
 
