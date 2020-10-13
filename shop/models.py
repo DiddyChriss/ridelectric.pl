@@ -65,11 +65,7 @@ class Order(models.Model):
     complete = models.BooleanField(default=False, null=True, blank=False)
 
     def __str__(self, *args, **kwargs):
-        if self.id:
-            id=self.id
-        else:
-            id='None'
-        return  str(id)
+        return  str(self.id)
 
     @property
     def get_all_price(self):

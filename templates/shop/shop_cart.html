@@ -3,10 +3,10 @@
 
 {% block productshop %}
 
-{% if shop_products_cart.count == 0 %}
-  <div class="container row">
-    <p class="mx-auto">Brak produktów w koszyku </p>
-  </div>
+  {% if not shop_products_cart_list %}
+    <div class="container row">
+      <p class="mx-auto">Brak produktów w koszyku </p>
+    </div>
   {% else %}
 <!--Section: Block Content-->
 <section>
@@ -15,7 +15,7 @@
     <!--Grid column-->
     <div class="col-lg-8">
       <div class="container row">
-        <h5 class="ml-3 mt-1">Koszyk (Produkty - <span>{{ shop_products_cart.count }}</span>)</h5>
+        <h5 class="ml-3 mt-1">Koszyk (Produkty - <span>{{ shop_products_cart }}</span>)</h5>
         <form class="form-inline mr-n3 ml-auto mt-n1 mb-2" action='.' method='POST'> {% csrf_token %}
           <button type="submit" class="btn btn-danger" name="delete_all_in_cart">
             Wyczyść Koszyk
@@ -30,7 +30,7 @@
         {% endfor %}
       {% endif %}
 
-      {%  for id in shop_products_cart %}
+      {%  for id in shop_products_cart_list %}
       <!-- Card -->
       <div class="card wish-list mb-3">
         <div class="card-body mb-n2">
@@ -63,7 +63,7 @@
             </div>
           </div>
             <div class="row">
-              <div class="col mr-auto">
+              <div class="col-12 col-md-6 mr-auto">
                 <small id="passwordHelpBlock" class="text-center form-text text-muted ml-1">
                   ilość:
                 </small>
@@ -79,7 +79,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col mt-4">
+              <div class="col-12 col-md-6 mt-2 text-center">
                 <span><strong>{{ id.get_total_price|floatformat:2 }} PLN </strong></span>
               </div>
             </div>
@@ -144,7 +144,11 @@
               <span><strong>{{ order.get_vat_price|floatformat:2 }}</strong></span>
             </li>
           </ul>
-          <button type="button" class="btn btn-primary btn-block waves-effect waves-light">Zapłać</button>
+          <form class="form-inline" action='.' method='POST'> {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-block waves-effect waves-light" name="pay">
+              Zapłać
+            </button>
+          </form>
         </div>
       </div>
       <!-- Card -->

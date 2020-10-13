@@ -18,20 +18,29 @@ class Shop_get_View():
     def get(self,request, pk=None,  *args, **kwargs):
         form = Search_form()
         queryset = Product.objects.all()
-        queryset_cart = OrderItem.objects.all()
-
-        if request.user.is_authenticated:
-            customer = request.user.customer
-        else:
-            device = request.COOKIES['device']
-            customer= Customer.objects.get(device=device)
-        order= Order.objects.get(customer=customer)
+        queryset_cart_all_users = OrderItem.objects.all()
+        Customer.objects.get_or_create(device='is_anonymous')
+        order = ''
+        try:
+            if request.user.is_authenticated:
+                customer = request.user.customer
+            else:
+                device = request.COOKIES['device']
+                customer, created = Customer.objects.get_or_create(device=device)
+            order, created = Order.objects.get_or_create(customer=customer)
+            queryset_cart = []
+            for user_item in queryset_cart_all_users:
+                if user_item.order == order:
+                    queryset_cart.append(user_item)
+        except:
+            queryset_cart = []
 
         context = {
             'form': form,
             'shop_products': queryset,
-            'shop_products_cart': queryset_cart,
-            'order': order,
+            'shop_products_cart': len(queryset_cart),
+            'shop_products_cart_list': queryset_cart,
+            'order': order
         }
         return render(self.request, self.template_name, context)
 
@@ -55,7 +64,9 @@ class ShopAllListView(Shop_get_View, View):                              # All p
         context = {
             'form': form,
             'shop_products': queryset,
-            'shop_products_cart': queryset_cart
+            'shop_products_cart': len(queryset_cart),
+            'shop_products_cart_list': queryset_cart
+
         }
         return render(self.request, 'shop/shop_search.html', context)
 
@@ -65,11 +76,24 @@ class Shop_Product_DetailView(View):                       # Detail products fro
 
     def get(self, request, pk=None, *args, **kwargs):
         form = Search_form()
-        queryset_cart = OrderItem.objects.all()
+        queryset_cart_all_users = OrderItem.objects.all()
+        try:
+            if request.user.is_authenticated:
+                customer = request.user.customer
+            else:
+                device = request.COOKIES['device']
+                customer, created = Customer.objects.get_or_create(device=device)
+            order, created = Order.objects.get_or_create(customer=customer)
+            queryset_cart = []
+            for user_item in queryset_cart_all_users:
+                if user_item.order == order:
+                    queryset_cart.append(user_item)
+        except:
+            queryset_cart = []
 
         context = {
             'form': form,
-            'shop_products_cart': queryset_cart
+            'shop_products_cart': len(queryset_cart),
         }
         if pk is not None:
             object = get_object_or_404(Product, pk=pk)
@@ -89,9 +113,11 @@ class Shop_Product_DetailView(View):                       # Detail products fro
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
+
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
             product = get_object_or_404(Product, pk=pk)
             orderitem, created = OrderItem.objects.get_or_create(order=order, product=product, quantity='1')
+
             if created:
                 messages.info(request, 'Produkt został dodany do koszyka', extra_tags="info")
             else:
@@ -103,7 +129,7 @@ class Shop_Product_DetailView(View):                       # Detail products fro
         context = {
             'form': form,
             'shop_products': queryset,
-            'shop_products_cart': queryset_cart
+            'shop_products_cart': len(queryset_cart)
         }
 
         return render(self.request, 'shop/shop_search.html', context)
@@ -144,12 +170,18 @@ class Shop_Cart_View(Shop_get_View, View):                       # Detail produc
             else:
                 item.save()
             return HttpResponseRedirect('/sklep/koszyk/')
+        elif 'pay' in self.request.POST:           # plus quantity of product
+            print('twoja stara')
+            ########################################
+
+            return HttpResponseRedirect('/sklep/koszyk/zaplac/')
         form = Search_form()
 
         context = {
             'form': form,
             'shop_products': queryset,
-            'shop_products_cart': queryset_cart
+            'shop_products_cart': len(queryset_cart),
+            'shop_products_cart_list': queryset_cart
         }
 
         return render(self.request, 'shop/shop_search.html', context)
