@@ -189,7 +189,7 @@ class Shop_Cart_View(Shop_get_View, View):                       # Detail produc
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-class Shop_Payment_View(Shop_get_View, View):                       # Detail products from shop
+class Shop_Payment_View(Shop_get_View, View):
     template_name = 'shop/shop_payment.html'
 
     def post(self, request, pk=None, *args, **kwargs):
@@ -214,13 +214,7 @@ class Shop_Payment_View(Shop_get_View, View):                       # Detail pro
             form_value = form.cleaned_data['search_product']
             queryset = Product.objects.filter(title_product__icontains=form_value)
             messages.info(request, 'Znalezione produkty:', extra_tags="info")
-        elif 'pay' in self.request.POST and pay_form.is_bound and pay_form.is_valid():      # plus quantity of product
-
-                                                ###################################################
-            order.complete=True                 ###################################################
-            order.save()                        ####### zmiana po dokonaniu płatności##############
-                                                ###################################################
-
+        elif 'pay' in self.request.POST and pay_form.is_bound and pay_form.is_valid():      # pay button
             shoppingadress=pay_form.save(commit=False)
             shoppingadress.customer=customer
             shoppingadress.order=order
@@ -240,6 +234,24 @@ class Shop_Payment_View(Shop_get_View, View):                       # Detail pro
 
 class Shop_PayPal_View(Shop_get_View, View):
     template_name = 'shop/shop_paypal.html'
+
+class Shop_PayPal_End_View(View):
+    template_name = 'shop/shop_paypal_end.html'
+    def get(self,request, pk=None,  *args, **kwargs):
+        Customer.objects.get_or_create(device='is_anonymous')
+        order = ''
+        try:
+            if request.user.is_authenticated:
+                customer = request.user.customer
+            else:
+                device = request.COOKIES['device']
+                customer, created = Customer.objects.get_or_create(device=device)
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        except:
+            pass
+        order.complete = True
+        order.save()
+        return render(self.request, self.template_name)
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

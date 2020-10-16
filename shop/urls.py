@@ -4,7 +4,8 @@ from shop.views import (
     Shop_Product_DetailView,
     Shop_Cart_View,
     Shop_Payment_View,
-    Shop_PayPal_View
+    Shop_PayPal_View,
+    Shop_PayPal_End_View
     )
 
 app_name = 'shop'
@@ -34,6 +35,7 @@ urlpatterns = [
     path('sklep/koszyk/', Shop_Cart_View.as_view(), name='cart'),
     path('sklep/koszyk/<int:pk>/', Shop_Cart_View.as_view(), name='cart_delete'),
     path('sklep/koszyk/zaplac/', Shop_Payment_View.as_view(), name='payment'),
-    path('sklep/koszyk/zaplac/paypal/', Shop_PayPal_View.as_view(), name='paypal')
+    path('sklep/koszyk/zaplac/paypal/', Shop_PayPal_View.as_view(), name='paypal'),
+    path('sklep/koszyk/zaplac/paypal/end', Shop_PayPal_End_View.as_view(), name='paypalend')
 
 ]

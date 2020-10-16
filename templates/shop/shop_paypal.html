@@ -30,9 +30,8 @@
 
   <!----------------------- PAYPAL ----------------------------------------------------------------------------->
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AZ6Wo3rk5BZt-fpP4UwbpQ2JHvg686G9tcgy0NopT8RJdxz1LoiyOPdQPcpt4zmotkCbmyrw_r5tyyem&currency=PLN"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQ5b0MTz3qoqXRN6px3DW7Hc9oOZjOpL21rtaRFH5_d0g4McyE6mRE4gyvqpYjg6qkcXQgzvwqdx6oL5&currency=PLN"></script>
     <script>
-
       var price = '{{ order.get_vat_price|floatformat:2 }}'
       paypal.Buttons({
         style: {
@@ -56,6 +55,7 @@
           return actions.order.capture().then(function(details) {
             // This function shows a transaction success message to your buyer.
             alert('Transaction completed by ' + details.payer.name.given_name);
+            window.location.href = 'http://127.0.0.1:8000/sklep/koszyk/zaplac/paypal/end';
           });
         }
       }).render('#paypal-button-container');
