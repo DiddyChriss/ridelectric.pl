@@ -2,7 +2,9 @@ from django.urls import path
 from shop.views import (
     ShopAllListView,
     Shop_Product_DetailView,
-    Shop_Cart_View
+    Shop_Cart_View,
+    Shop_Payment_View,
+    Shop_PayPal_View
     )
 
 app_name = 'shop'
@@ -30,6 +32,8 @@ urlpatterns = [
         ) ,
     path('sklep/produkty/<int:pk>/', Shop_Product_DetailView.as_view(), name='product'),
     path('sklep/koszyk/', Shop_Cart_View.as_view(), name='cart'),
-    path('sklep/koszyk/<int:pk>/', Shop_Cart_View.as_view(), name='cart_delete')
+    path('sklep/koszyk/<int:pk>/', Shop_Cart_View.as_view(), name='cart_delete'),
+    path('sklep/koszyk/zaplac/', Shop_Payment_View.as_view(), name='payment'),
+    path('sklep/koszyk/zaplac/paypal/', Shop_PayPal_View.as_view(), name='paypal')
 
 ]

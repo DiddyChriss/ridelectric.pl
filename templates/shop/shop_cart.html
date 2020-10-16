@@ -4,6 +4,13 @@
 {% block productshop %}
 
   {% if not shop_products_cart_list %}
+      {% if messages %}
+        {% for message in messages %}
+                <div class="alert alert-danger my-3 mx-3 mx-auto" role="alert">
+                    {{ message }}
+                </div>
+        {% endfor %}
+      {% endif %}
     <div class="container row">
       <p class="mx-auto">Brak produktów w koszyku </p>
     </div>
@@ -146,7 +153,7 @@
           </ul>
           <form class="form-inline" action='.' method='POST'> {% csrf_token %}
             <button type="submit" class="btn btn-primary btn-block waves-effect waves-light" name="pay">
-              Zapłać
+              Idź do Płatności
             </button>
           </form>
         </div>

@@ -5,76 +5,86 @@ from .models import *
 class Search_form(forms.Form):
     search_product          = forms.CharField(label='', widget=forms.TextInput(
                                                 attrs={
-                                                    "size": 15,
                                                     "placeholder": "Szukaj",
                                                     "class": "col form-control shadow-sm p-1 mx-1 rounded"
                                                 }
                                             )
                                        )
 
-# class ProductShop(forms.ModelForm):
-#     title_product  = forms.CharField(label='Name', widget=forms.TextInput(
-#                                                  attrs={
-#                                                      "size": 30,
-#                                                      "placeholder": "Your Name"
-#                                                  }
-#                                              )
-#                                         )
-#     description_product = forms.CharField(required=False, label='Comment', widget=forms.Textarea(
-#                                                  attrs={
-#                                                      "placeholder": "Coment",
-#                                                      "rows": 10,
-#                                                      "cols": 30
-#                                                  }
-#                                              )
-#                                         )
-#     price_product = forms.DecimalField(widget=forms.TextInput(
-#                                                  attrs={
-#                                                      "placeholder": "19.99"
-#                                                  }
-#                                              )
-#                                          )
-#     image_product = forms.FileField(label='Image', required=False)
-#     confirmation_buy = forms.BooleanField(required=False)
-#     class Meta:
-#         model = Shop_models
-#         fields = (
-#             'title_product',
-#             'description_product',
-#             'price_product',
-#             'image_product',
-#             'confirmation_buy'
-#         )
+class PaymentForms(forms.ModelForm):
+    firstname  = forms.CharField(label='', required=True, widget=forms.TextInput(
+                                                 attrs={
+                                                     "placeholder": "Imię",
+                                                     "class": "form-control"
+                                                 }
+                                             )
+                                        )
+    lastname =  forms.CharField(label='', required=True, widget=forms.TextInput(
+                                                 attrs={
+                                                     "placeholder": "Nazwisko",
+                                                     "class": "form-control"
+                                                 }
+                                             )
+                                        )
+    email =  forms.EmailField(label='', required=True, widget=forms.EmailInput(
+                                                 attrs={
+                                                     "placeholder": "adres e-mail",
+                                                     "class": "form-control"
+                                                 }
+                                             )
+                                        )
+    number =  forms.IntegerField(label='', required=True, widget=forms.NumberInput(
+                                                 attrs={
+                                                     "placeholder": "Telefon",
+                                                     "class": "form-control"
+                                                 }
+                                             )
+                                        )
 
-    # def clean_name_shop(self,*args, **kwargs):
-    #     name_shop = self.cleaned_data.get('name_shop')
-    #     if "fuck" in name_shop:
-    #         raise forms.ValidationError('It\'s a bad word! Stop use!')
-    #     return name_shop
+    streetnumber = forms.CharField(label='', required=True, widget=forms.TextInput(
+                                                attrs={
+                                                    "placeholder": "Ulica, nr.Domu",
+                                                    "class": "form-control"
+                                                }
+                                            )
+                                                                    )
+    city = forms.CharField(label='',required=True, widget=forms.TextInput(
+                                                 attrs={
+                                                     "placeholder": "Miasto",
+                                                     "class": "form-control"
+                                                 }
+                                             )
+                                        )
+    zipcode =  forms.CharField(label='', required=True, widget=forms.TextInput(
+                                                 attrs={
+                                                     "size":6,
+                                                     "placeholder": "Kod",
+                                                     "class": "form-control"
 
+                                                 }
+                                             )
+                                        )
+    comment = forms.CharField(label='', required=False, widget=forms.Textarea(
+        attrs={
+            "rows": 4,
+            "cols": 10,
+            "placeholder": "Uwagi",
+            "class": "form-control"
 
+        }
+    )
+                              )
 
+    class Meta:
+        model = ShoppingAddress
+        fields = (
+            'firstname',
+            'lastname',
+            'email',
+            'number',
+            'streetnumber',
+            'city',
+            'zipcode',
+            'comment'
+        )
 
-# class ProductFormShop(forms.Form):
-#     title_product            = forms.CharField(label='Name', widget=forms.TextInput(
-#                                                 attrs={
-#                                                     "size": 30,
-#                                                     "placeholder": "Your Name"}
-#                                             )
-#                                        )
-#     description_product      = forms.CharField(required=False, label='Comment', widget=forms.Textarea(
-#                                                 attrs={
-#                                                     "placeholder": "Coment",
-#                                                     "rows": 10,
-#                                                     "cols": 30
-#                                                 }
-#                                             )
-#                                        )
-#     price_product            = forms.DecimalField(widget=forms.TextInput(
-#                                                 attrs={
-#                                                     "placeholder": "19.99"
-#                                                 }
-#                                             )
-#                                         )
-#     image_product             = forms.FileField(label='Photo',required=False)
-#     confirmation_buy = forms.BooleanField(required=False)

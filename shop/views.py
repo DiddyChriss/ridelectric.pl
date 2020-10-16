@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.http import HttpResponse
-from django.contrib.auth.models import Permission, User
-from django.core.files.storage import FileSystemStorage
-from .models import *
-from .forms import *
+from shop.models import *
+from shop.forms import *
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.views import View
@@ -14,9 +12,12 @@ from django.views.generic import (
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Class area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+
 class Shop_get_View():
     def get(self,request, pk=None,  *args, **kwargs):
         form = Search_form()
+        pay_form = PaymentForms()
+
         queryset = Product.objects.all()
         queryset_cart_all_users = OrderItem.objects.all()
         Customer.objects.get_or_create(device='is_anonymous')
@@ -27,7 +28,7 @@ class Shop_get_View():
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
-            order, created = Order.objects.get_or_create(customer=customer)
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
             queryset_cart = []
             for user_item in queryset_cart_all_users:
                 if user_item.order == order:
@@ -37,6 +38,7 @@ class Shop_get_View():
 
         context = {
             'form': form,
+            'pay_form': pay_form,
             'shop_products': queryset,
             'shop_products_cart': len(queryset_cart),
             'shop_products_cart_list': queryset_cart,
@@ -83,7 +85,7 @@ class Shop_Product_DetailView(View):                       # Detail products fro
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
-            order, created = Order.objects.get_or_create(customer=customer)
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
             queryset_cart = []
             for user_item in queryset_cart_all_users:
                 if user_item.order == order:
@@ -170,13 +172,10 @@ class Shop_Cart_View(Shop_get_View, View):                       # Detail produc
             else:
                 item.save()
             return HttpResponseRedirect('/sklep/koszyk/')
-        elif 'pay' in self.request.POST:           # plus quantity of product
-            print('twoja stara')
-            ########################################
-
+        elif 'pay' in self.request.POST:                                # go to payment
             return HttpResponseRedirect('/sklep/koszyk/zaplac/')
-        form = Search_form()
 
+        form = Search_form()
         context = {
             'form': form,
             'shop_products': queryset,
@@ -188,5 +187,59 @@ class Shop_Cart_View(Shop_get_View, View):                       # Detail produc
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Shopping cart area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+class Shop_Payment_View(Shop_get_View, View):                       # Detail products from shop
+    template_name = 'shop/shop_payment.html'
+
+    def post(self, request, pk=None, *args, **kwargs):
+        form = Search_form(self.request.POST or None)
+        pay_form = PaymentForms(self.request.POST or None)
+        queryset_cart_all_users = OrderItem.objects.all()
+        try:
+            if request.user.is_authenticated:
+                customer = request.user.customer
+            else:
+                device = request.COOKIES['device']
+                customer, created = Customer.objects.get_or_create(device=device)
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+            queryset_cart = []
+            for user_item in queryset_cart_all_users:
+                if user_item.order == order:
+                    queryset_cart.append(user_item)
+        except:
+            queryset_cart = []
+
+        if form.is_bound and form.is_valid():                       # use seerch
+            form_value = form.cleaned_data['search_product']
+            queryset = Product.objects.filter(title_product__icontains=form_value)
+            messages.info(request, 'Znalezione produkty:', extra_tags="info")
+        elif 'pay' in self.request.POST and pay_form.is_bound and pay_form.is_valid():      # plus quantity of product
+
+                                                ###################################################
+            order.complete=True                 ###################################################
+            order.save()                        ####### zmiana po dokonaniu płatności##############
+                                                ###################################################
+
+            shoppingadress=pay_form.save(commit=False)
+            shoppingadress.customer=customer
+            shoppingadress.order=order
+            shoppingadress.save()
+
+            return HttpResponseRedirect('/sklep/koszyk/zaplac/paypal/')
+
+        form = Search_form()
+        context = {
+            'form': form,
+            'shop_products': queryset,
+            'shop_products_cart': len(queryset_cart),
+            'order': order
+        }
+
+        return render(self.request, 'shop/shop_search.html', context)
+
+class Shop_PayPal_View(Shop_get_View, View):
+    template_name = 'shop/shop_paypal.html'
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

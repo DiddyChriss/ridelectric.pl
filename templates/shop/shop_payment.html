@@ -1,0 +1,140 @@
+{% extends 'shop/base_shop.html' %}
+{% load static %}
+
+{% block productshop %}
+
+  <!--Main layout-->
+  <main class="">
+    <div class="container wow fadeIn">
+      <!-- Heading -->
+      <h2 class="my-5 h2 text-center">Formularz Płatności</h2>
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+          <!--Card-->
+          <div class="card">
+            <!--Card content-->
+            <form class="card-body" action='.' method="POST">{% csrf_token %}
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                  <!--firstName-->
+                  <div class="md-form col-9 col-md-9 col-lg-6 mb-3">
+                    <label class="ml-2">Imię*</label>
+                    {{ pay_form.firstname }}
+                  </div>
+                  <!--lastName-->
+                  <div class="md-form col-9 col-md-9 col-lg-6 mb-3">
+                    <label  class="ml-2">Nazwisko*</label>
+                    {{ pay_form.lastname }}
+                  </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+              <!--email-->
+              <div class="row">
+
+              <div class="md-form col-9 col-md-9 col-lg-8 mb-3">
+                <label class="ml-2"> E-mail*</label>
+                {{ pay_form.email }}
+              </div>
+
+              <!--phone-->
+              <div class="md-form col-9 col-md-9 col-lg-8 mb-3">
+                <label  class="ml-2">Telefon*</label>
+                {{ pay_form.number }}
+              </div>
+              </div>
+              <!--address-->
+              <hr class="">
+                <div class="md-form col-md-9 col-lg-8 ">
+                  <strong><label class="mb-n2">Adres Wysyłki:<label></strong>
+                </div>
+              <hr class="mb-4">
+              <div class="row">
+
+              <div class="md-form mb-3 col-9 col-md-9 col-lg-8">
+                <label class="ml-2">Ulica, Nr. Domu*</label>
+                {{ pay_form.streetnumber }}
+              </div>
+
+              <!--address-2-->
+              <!--Grid row-->
+
+                <!--Grid column-->
+                <div class="col-9 col-9 col-lg-7 md-form mb-3">
+                  <label class="ml-2">Miasto* </label>
+                  {{ pay_form.city }}
+                </div>
+                <div class=" md-form col-7 col-lg-5">
+                  <label class="ml-2">Kod Pocztowy*</label>
+                  {{ pay_form.zipcode }}
+                </div>
+                <!--Grid column-->
+                <div class="col-12 md-form mb-3">
+                  <label class="ml-2">Uwagi:</label>
+                  {{ pay_form.comment }}
+                  <label class="ml-2">(Niewymagane)</label>
+                </div>
+              </div>
+              <!--Grid row-->
+              <hr>
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="paypal">Paypal</label>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" name="pay">Zapłać</button>
+            </form>
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+
+          <!-- Cart -->
+          <ul class="list-group mb-3 z-depth-1">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <span class="my-0">Ilość Produktów:</span>
+              <strong>{{ shop_products_cart }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div  class="mx-auto">
+                <h6>Kwota do Zapłaty:</h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <span >netto:</span>
+              <spam >{{ order.get_all_price|floatformat:2 }}</spam>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <span class="my-0">vat:</span>
+              <span>{{ order.vat|floatformat:2 }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div  class="mx-auto">
+                <h6>Razem brutto:</h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-primary">
+                <strong class="mx-auto" style="color:white;"> {{ order.get_vat_price|floatformat:2 }} PLN</strong>
+            </li>
+          </ul>
+          <!-- Cart -->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock %}

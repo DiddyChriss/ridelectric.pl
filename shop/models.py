@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from phone_field import PhoneField
 
 
 class Customer(models.Model):
@@ -78,6 +79,10 @@ class Order(models.Model):
         total = float(self.get_all_price) * float(1.23)
         return total
 
+    def vat(self):
+        total = float(self.get_vat_price) - float(self.get_all_price)
+        return total
+
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
@@ -85,7 +90,7 @@ class OrderItem(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self, *args, **kwargs):
-        return (self.product.title_product)
+        return str('order: {}, name: {},'.format(self.order, self.product.title_product))
 
     @property
     def get_total_price(self):
@@ -93,12 +98,18 @@ class OrderItem(models.Model):
         return total
 
 class ShoppingAddress(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
-    adres = models.CharField(max_length=200, null=True)
-    city = models.CharField(max_length=200, null=True)
-    zipcode = models.CharField(max_length=200, null=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    customer            = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
+    order               = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
+    firstname           = models.CharField(max_length=200, null=True)
+    lastname            = models.CharField(max_length=200, null=True)
+    email               = models.EmailField(max_length=200, null=True)
+    number              = models.CharField(max_length=200, null=True)
+    streetnumber        = models.CharField(max_length=200, null=True)
+    city                = models.CharField(max_length=200, null=True)
+    zipcode             = models.CharField(max_length=200, null=True)
+    comment             = models.CharField(max_length=200, null=True)
+    date_added          = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self, *args, **kwargs):
-            return (self.adress)
+            return str('{} ,order: {}, name: {},'.format(self.id,self.order, self.firstname))

@@ -1,5 +1,6 @@
 Python 3.8+
 Django 3.0.6
+pip install django-phone-field
 django.shortcuts-render, get_object_or_404, redirect, HttpResponseRedirect
 django.core.mail-send_mail
 django.template-loader
