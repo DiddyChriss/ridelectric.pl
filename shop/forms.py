@@ -5,6 +5,7 @@ from .models import *
 class Search_form(forms.Form):
     search_product          = forms.CharField(label='', widget=forms.TextInput(
                                                 attrs={
+                                                    "size": 16,
                                                     "placeholder": "Szukaj",
                                                     "class": "col form-control shadow-sm p-1 mx-1 rounded"
                                                 }
@@ -88,3 +89,37 @@ class PaymentForms(forms.ModelForm):
             'comment'
         )
 
+
+class UserForms(forms.ModelForm):
+    name  = forms.CharField(label='', required=True, widget=forms.TextInput(
+                                                 attrs={
+                                                     "placeholder": "Nazwa Użytkownika",
+                                                     "class": "form-control mb-4"
+                                                 }
+                                             )
+                                        )
+    email = forms.EmailField(label='', required=True, widget=forms.EmailInput(
+                                                attrs={
+                                                    "placeholder": "adres e-mail",
+                                                    "class": "form-control mb-4"
+                                                }
+                                            )
+                                         )
+    password =  forms.CharField(label='', required=True, widget=forms.PasswordInput(
+                                                 attrs={
+                                                     "placeholder": "Hasło",
+                                                     "class": "form-control mb-4"
+                                                 }
+                                             )
+                                        )
+
+    confirm = forms.BooleanField(label='Powiadamiaj mnie o nowych ofertach', required=False)
+
+    class Meta:
+        model = Customer
+        fields = (
+            'name',
+            'email',
+            'password',
+            'confirm'
+        )

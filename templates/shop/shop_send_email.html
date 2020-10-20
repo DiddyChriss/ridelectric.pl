@@ -1,0 +1,47 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <!-- Google Fonts Roboto -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css2-shop/style.css' %}" type="text/css">
+    <title>ridelectric - shop</title>
+</head>
+<body>
+<div class="container alert">
+    <nav class="navbar navbar-light bg-primary  shadow-sm mb-1 rounded my-4">
+        <a class="mr-auto" href="https://www.ridelectric.pl/sklep">
+            <img class="image-logo ml-n1" style="height: 3.5rem" src="{% static 'img/logo.png' %}" alt="Logo">
+        </a>
+    </nav>
+    <div class="alert text-center alert-secondary shadow-sm mb-5 rounded">
+
+        <div class="container alert alert-primary shadow-sm p-3 my-5 mx-auto text-center rounded" role="alert">
+            <h1>Witaj {{customer.name}}</h1>
+            <h5>Dziękujemy za dokonanie rejestracji w naszym serwisie ridelectric.pl!</h5>
+            <p>zaloguj się za pomoca adresu e-mail: {{ customer.email }},
+                 oraz Hasła które podałeś przy dokonywaniu rejestracji.</p>
+            <p>Obecnie pracujemy nad funkcjonalnością strony, w krótce dostepnę będzie wiecej funkcji.</p>
+            <p>Zapoznaj sie z naszymi produktami klikając w poniższy link..</p>
+        </div>
+        <a class=" text-center badge badge-pill w-25 p-3 badge-light mb-5" href="https://www.ridelectric.pl/sklep">
+            <span class="">e-Shop</span>
+        </a>
+    </div>
+
+
+</div>
+</body>
+
+</html>

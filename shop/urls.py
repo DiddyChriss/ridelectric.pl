@@ -5,7 +5,13 @@ from shop.views import (
     Shop_Cart_View,
     Shop_Payment_View,
     Shop_PayPal_View,
-    Shop_PayPal_End_View
+    Shop_PayPal_End_View,
+    Shop_Login_View,
+    Shop_Register_View,
+    Shop_Reset_Password_View,
+    Shop_User_View,
+    Shop_Logoff_View,
+    emailsent
     )
 
 app_name = 'shop'
@@ -36,6 +42,12 @@ urlpatterns = [
     path('sklep/koszyk/<int:pk>/', Shop_Cart_View.as_view(), name='cart_delete'),
     path('sklep/koszyk/zaplac/', Shop_Payment_View.as_view(), name='payment'),
     path('sklep/koszyk/zaplac/paypal/', Shop_PayPal_View.as_view(), name='paypal'),
-    path('sklep/koszyk/zaplac/paypal/end', Shop_PayPal_End_View.as_view(), name='paypalend')
+    path('sklep/koszyk/zaplac/paypal/end', Shop_PayPal_End_View.as_view(), name='paypalend'),
+    path('sklep/logowanie', Shop_Login_View.as_view(), name='login'),
+    path('sklep/rejestracja', Shop_Register_View.as_view(), name='register'),
+    path('sklep/logowanie/resethasla', Shop_Reset_Password_View.as_view(), name='resetpassword'),
+    path('sklep/user', Shop_User_View.as_view(), name='user'),
+    path('sklep/wyloguj', Shop_Logoff_View.as_view(), name='logoff'),
+    path('sklep/email', emailsent.as_view(), name='emailsent')          ##########usun###################
 
 ]

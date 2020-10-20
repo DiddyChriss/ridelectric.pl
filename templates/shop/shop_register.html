@@ -1,0 +1,43 @@
+{% extends 'shop/base_shop.html' %}
+{% load static %}
+
+{% block productshop %}
+<div class="container col-12 col-md-7 col-lg-5">
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger mx-auto text-center " role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <!-- Default form register -->
+    <form class="order border-light p-2" action='.' method='POST'>{% csrf_token %}
+        <p class="text-center h4 mb-4">Szybka Rejestracja</p>
+                <!--  name -->
+        <span class="text-left">Imie:</span>
+        {{ user_form.name }}
+        <!-- E-mail -->
+        <span>Email:</span>
+        {{ user_form.email }}
+        <!-- Password -->
+        <span class="">Hasło:</span>
+        {{ user_form.password }}
+        <!-- Newsletter -->
+        <div class="row">
+            <p class="col-2 ml-2">{{ user_form.confirm }}</p>
+            <span class="col-9">Powiadamiaj mnie o nowych ofertach</span>
+        </div>
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit" name="register">Rejestracja</button>
+        <hr>
+        <!-- Terms of service -->
+        <p class="text-center">Klikając
+            <em>Rejestracja</em> akceptujesz
+            <a href="https://www.ridelectric.pl/regulamin/" target="_blank">Regulamin ridelectric</a>
+    </form>
+    <!-- Default form register -->
+</div>
+{% endblock %}
+

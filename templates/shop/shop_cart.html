@@ -4,14 +4,15 @@
 {% block productshop %}
 
   {% if not shop_products_cart_list %}
+    <div class="container text-center">
       {% if messages %}
         {% for message in messages %}
-                <div class="alert alert-danger my-3 mx-3 mx-auto" role="alert">
+                <div class="alert alert-danger mx-auto" role="alert">
                     {{ message }}
                 </div>
         {% endfor %}
       {% endif %}
-    <div class="container row">
+
       <p class="mx-auto">Brak produktów w koszyku </p>
     </div>
   {% else %}

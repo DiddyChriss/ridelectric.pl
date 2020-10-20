@@ -23,20 +23,45 @@
         <!-- comerc -->
         <div class="alert alert-primary shadow-sm p-3 mb-5 rounded" role="alert">
           <p>advertisement!</p>
-            <p class="badge-pill badge-light my-1 text-center mx-auto">Obecnie w sklepie znajdują się produkty
-                    testowe.. trwaja prace nad stroną.. prosimy o cierpliwość..</p>
+            <p class="badge-pill badge-light my-1 text-center mx-auto">trwaja prace nad stroną.. prosimy o cierpliwość..</p>
         </div>
         <!-- end comerc -->
     </div>
-    <nav class="navbar navbar-light bg-primary shadow-sm mb-1 rounded">
-            <a class="navbar-brand mr-auto" href="/">
-                <img class="image-logo ml-n1" style="height: 3.5rem" src="{% static 'img/logo.png' %}" alt="Logo">
-                <a class="badge badge-pill badge-light w-25 p-3 mx-auto" href="/sklep">
+    <nav class="navbar navbar-light bg-primary navbar-expand-md shadow-sm mb-1 rounded">
+            <img class="image-logo mr-auto ml-n1" style="height: 3.5rem" src="{% static 'img/logo.png' %}" alt="Logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalTop" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav nav-pills " id="navbarToggleExternalTop">
+                <a class="mr-auto badge badge-pill w-25 p-3 badge-light mt-2 mx-md-auto" href="/sklep">
                     <span class="">e-Shop</span>
                 </a>
-            <a class="ml-auto" href="/">
-                <button type="button" class="btn btn-outline-light">HOME</button>
-            </a>
+                <div>
+                    {% if customer_count > 20 or customer == 'is_anonymous'  %}
+                        <a class="" href="/sklep/logowanie">
+                            <button type="button" class="btn btn-outline-light">
+                                <i class="fas fa-sign-in-alt" title="zaloguj"></i>
+                            </button>
+                        </a>
+                    {% else %}
+                        <span style="color:white;">
+                            Hello
+                            <a style="color:white;" href="/sklep/<slug>"> {{ customer|upper }}</a>
+                        </span>
+                        <a class="" href="/sklep/wyloguj">
+                            <button type="button" class="btn btn-outline-light" name="log_off">
+                                <i class="fas fa-sign-out-alt" title="wyloguj"></i>
+                            </button>
+                        </a>
+                    {% endif %}
+                        <a class="" href="/">
+                            <button type="button" class="btn btn-outline-light">
+                                <i class="fas fa-home" title="Strona Główna"></i>
+                            </button>
+                        </a>
+                </div>
+            </div>
     </nav>
     <nav class="navbar navbar-light bg-primary shadow-sm p-2 mb-3 rounded">
         <form class="form-inline" action='.' method='POST'> {% csrf_token %}
@@ -68,13 +93,13 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse nav nav-pills flex-column" id="navbarToggleExternalContent">
-                            <a class="nevbar nav-link mx-n2 font-weight-bold" href="/sklep/EV">Stacje EV</a>
+                        <a class="nevbar nav-link mx-n2 font-weight-bold" href="/sklep/EV">Stacje EV</a>
                         <nav class="nav nav-pills flex-column">
                             <a class="nav-link ml-3 my-1" href="/sklep/EV7">7 kW</a>
                             <a class="nav-link ml-3 my-1" href="/sklep/EV22">22 kW</a>
                             <a class="nav-link ml-3 my-1" href="/sklep/EVcable">Kable</a>
                         </nav>
-                            <a class="nav-link mx-n2 font-weight-bold" href="/sklep/PV">Produkty PV</a>
+                        <a class="nav-link mx-n2 font-weight-bold" href="/sklep/PV">Produkty PV</a>
                         <nav class="nav nav-pills flex-column">
                             <a class="nav-link ml-3 my-1" href="/sklep/PVmoduly">Panele</a>
                             <a class="nav-link ml-3 my-1" href="/sklep/PVinwertery">Inwertery</a>
@@ -101,7 +126,6 @@
             <!-- end comerc -->
         </div>
     </div>
-
 <nav class="navbar bottom navbar-light bg-primary shadow-sm mb-1 rounded">
     <a class="navbar-brand mr-auto my-2" href="/">
         <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
