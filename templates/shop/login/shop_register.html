@@ -1,0 +1,53 @@
+{% extends 'shop/base_shop.html' %}
+{% load static %}
+
+{% block productshop %}
+<div class="container col-12 col-md-7 col-lg-6">
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger mx-auto text-center " role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <!-- Default form register -->
+    <form class="border border-light p-5" action='.' method='POST'>{% csrf_token %}
+        <p class="text-center h4 mb-4">Szybka Rejestracja</p>
+                <!--  name -->
+        <span class="text-left">Nazwa Użytkownika:</span>
+        <div class="row">
+            <i class="mt-2 mr-2 fas fa-user"></i><p class="">{{ user_form.username }}</p>
+        </div>
+        <!-- E-mail -->
+        <span>Email:</span>
+        <div class="row">
+            <i class="mt-2 mr-2 fas fa-at"></i><p class="">{{ user_form.email }}</p>
+        </div>
+        <!-- Password -->
+        <span class="">Hasło:</span>
+        <div class="row">
+            <i class="mt-2 mr-2 fas fa-key"></i><p class="">{{ user_form.password1 }}</p>
+        </div>
+        <span class="">Powtórz Hasło:</span>
+        <div class="row">
+            <i class="mt-2 mr-2 fas fa-key"></i><p class="">{{ user_form.password2 }}</p>
+        </div>
+        <!-- Newsletter -->
+<!--        <div class="row">-->
+<!--            <p class="col-2 ml-2">{{ user_form.confirm }}</p>-->
+<!--            <span class="col-9">Powiadamiaj mnie o nowych ofertach</span>-->
+<!--        </div>-->
+        <!-- Sign up button -->
+        <button class="btn btn-primary btn-lg btn-block" type="submit" name="register">Rejestracja</button>
+    </form>
+        <hr>
+        <!-- Terms of service -->
+        <p class="text-center">Klikając
+            <em>Rejestracja</em> akceptujesz
+            <a href="https://www.ridelectric.pl/regulamin/" target="_blank">Regulamin ridelectric</a>
+    <!-- Default form register -->
+</div>
+{% endblock %}
+

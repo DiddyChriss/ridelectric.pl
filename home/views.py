@@ -15,7 +15,7 @@ def contact(request):
     confirmation_text = ""
 
     if request.method == "POST":                       # create data from form (click Botton)
-        name = request.POST.get("name")  # create variable as request by POST
+        name = request.POST.get("name")                 # create variable as request by POST
         surname = request.POST.get("surname")
         company = request.POST.get("company")
         email = request.POST.get("email")

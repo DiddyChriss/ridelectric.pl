@@ -7,16 +7,15 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=20, null=True)
     email = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=20, null=True)
     device = models.CharField(max_length=200, null=True)
-    confirm = models.BooleanField(null=True)
+    confirm = models.BooleanField(null=True) #########????????????????
 
     def __str__(self):
         if self.name is None:
             name = self.device
         else:
             name= self.name
-        return name
+        return str(name)
 
 class Product(models.Model):
     EV7KW = 'E7'
@@ -79,7 +78,6 @@ class Order(models.Model):
     def get_vat_price(self):
         total = float(self.get_all_price) * float(1.23)
         return total
-
     def vat(self):
         total = float(self.get_vat_price) - float(self.get_all_price)
         return total

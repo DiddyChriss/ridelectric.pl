@@ -1,4 +1,6 @@
 from django.urls import path
+from django.apps import apps
+from django.contrib.auth import views as auth_views
 from shop.views import (
     ShopAllListView,
     Shop_Product_DetailView,
@@ -8,10 +10,8 @@ from shop.views import (
     Shop_PayPal_End_View,
     Shop_Login_View,
     Shop_Register_View,
-    Shop_Reset_Password_View,
     Shop_User_View,
-    Shop_Logoff_View,
-    emailsent
+    Shop_Logout_View
     )
 
 app_name = 'shop'
@@ -42,12 +42,17 @@ urlpatterns = [
     path('sklep/koszyk/<int:pk>/', Shop_Cart_View.as_view(), name='cart_delete'),
     path('sklep/koszyk/zaplac/', Shop_Payment_View.as_view(), name='payment'),
     path('sklep/koszyk/zaplac/paypal/', Shop_PayPal_View.as_view(), name='paypal'),
-    path('sklep/koszyk/zaplac/paypal/end', Shop_PayPal_End_View.as_view(), name='paypalend'),
-    path('sklep/logowanie', Shop_Login_View.as_view(), name='login'),
-    path('sklep/rejestracja', Shop_Register_View.as_view(), name='register'),
-    path('sklep/logowanie/resethasla', Shop_Reset_Password_View.as_view(), name='resetpassword'),
-    path('sklep/user', Shop_User_View.as_view(), name='user'),
-    path('sklep/wyloguj', Shop_Logoff_View.as_view(), name='logoff'),
-    path('sklep/email', emailsent.as_view(), name='emailsent')          ##########usun###################
-
-]
+    path('sklep/koszyk/zaplac/paypal/end/', Shop_PayPal_End_View.as_view(), name='paypalend'),
+    path('sklep/logowanie/', Shop_Login_View.as_view(), name='login'),
+    path('sklep/rejestracja/', Shop_Register_View.as_view(), name='register'),
+    path('sklep/user/', Shop_User_View.as_view(), name='user'),
+    path('sklep/wyloguj/', Shop_Logout_View.as_view(), name='logoff'),
+    path('sklep/logowanie/resethasla/',
+         auth_views.PasswordResetView.as_view(
+             template_name="shop/login/shop_reset_password.html",
+            email_template_name='shop/login/shop_password_reset_email.html',
+            subject_template_name="shop/login/shop_password_reset_subject.txt"
+                                              ),
+         name='password_reset'
+         )
+    ]

@@ -9,3 +9,5 @@ django.views-View
 django.urls-path
 django.urls-reverse
 Mysql
+
+django-user-accounts

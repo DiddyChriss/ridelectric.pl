@@ -23,7 +23,9 @@
         <!-- comerc -->
         <div class="alert alert-primary shadow-sm p-3 mb-5 rounded" role="alert">
           <p>advertisement!</p>
-            <p class="badge-pill badge-light my-1 text-center mx-auto">trwaja prace nad stroną.. prosimy o cierpliwość..</p>
+            <p class="badge-pill badge-light my-1 text-center mx-auto">
+                trwaja prace nad stroną.. prosimy o cierpliwość..
+            </p>
         </div>
         <!-- end comerc -->
     </div>
@@ -38,20 +40,20 @@
                     <span class="">e-Shop</span>
                 </a>
                 <div>
-                    {% if customer_count > 20 or customer == 'is_anonymous'  %}
-                        <a class="" href="/sklep/logowanie">
-                            <button type="button" class="btn btn-outline-light">
-                                <i class="fas fa-sign-in-alt" title="zaloguj"></i>
-                            </button>
-                        </a>
-                    {% else %}
+                    {% if user.is_authenticated %}
                         <span style="color:white;">
                             Hello
-                            <a style="color:white;" href="/sklep/<slug>"> {{ customer|upper }}</a>
+                            <a style="color:white;" href="/sklep/<slug>"> {{ user|upper }}</a>
                         </span>
                         <a class="" href="/sklep/wyloguj">
                             <button type="button" class="btn btn-outline-light" name="log_off">
                                 <i class="fas fa-sign-out-alt" title="wyloguj"></i>
+                            </button>
+                        </a>
+                    {% else %}
+                        <a class="" href="/sklep/logowanie">
+                            <button type="button" class="btn btn-outline-light">
+                                <i class="fas fa-sign-in-alt" title="zaloguj"></i>
                             </button>
                         </a>
                     {% endif %}
@@ -66,7 +68,7 @@
     <nav class="navbar navbar-light bg-primary shadow-sm p-2 mb-3 rounded">
         <form class="form-inline" action='.' method='POST'> {% csrf_token %}
             {{ form.search_product }}
-            <button type="submit" class="btn btn-outline-light">Szukaj</button>
+            <button type="submit" class="btn btn-outline-light" name="search">Szukaj</button>
         </form>
         <a class="badge badge-pill badge-light mx-2 px-2 py-2 ml-auto" href="{% url 'shop:cart' %}">
             {% if shop_products_cart == 0 %}
@@ -172,8 +174,6 @@
             return cookieValue;
         }
         const csrftoken = getCookie('csrftoken');
-
-
 
 		function getCookie(name) {
 		    var cookieValue = null;

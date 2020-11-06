@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import *
 
 
@@ -11,6 +13,17 @@ class Search_form(forms.Form):
                                                 }
                                             )
                                        )
+
+
+class Email_Shop(forms.Form):
+    email = forms.EmailField(label='', required=True, widget=forms.EmailInput(
+        attrs={
+            "placeholder": "adres e-mail",
+            "class": "form-control mb-4"
+        }
+    )
+                             )
+
 
 class PaymentForms(forms.ModelForm):
     firstname  = forms.CharField(label='', required=True, widget=forms.TextInput(
@@ -48,7 +61,7 @@ class PaymentForms(forms.ModelForm):
                                                     "class": "form-control"
                                                 }
                                             )
-                                                                    )
+                                        )
     city = forms.CharField(label='',required=True, widget=forms.TextInput(
                                                  attrs={
                                                      "placeholder": "Miasto",
@@ -78,7 +91,7 @@ class PaymentForms(forms.ModelForm):
 
     class Meta:
         model = ShoppingAddress
-        fields = (
+        fields = [
             'firstname',
             'lastname',
             'email',
@@ -87,11 +100,11 @@ class PaymentForms(forms.ModelForm):
             'city',
             'zipcode',
             'comment'
-        )
+        ]
 
 
-class UserForms(forms.ModelForm):
-    name  = forms.CharField(label='', required=True, widget=forms.TextInput(
+class UserForms(UserCreationForm):
+    username  = forms.CharField(label='', required=True, widget=forms.TextInput(
                                                  attrs={
                                                      "placeholder": "Nazwa Użytkownika",
                                                      "class": "form-control mb-4"
@@ -105,21 +118,45 @@ class UserForms(forms.ModelForm):
                                                 }
                                             )
                                          )
-    password =  forms.CharField(label='', required=True, widget=forms.PasswordInput(
+    password1 =  forms.CharField(label='', max_length=20, required=True, widget=forms.PasswordInput(
                                                  attrs={
                                                      "placeholder": "Hasło",
                                                      "class": "form-control mb-4"
                                                  }
                                              )
                                         )
+    password2 = forms.CharField(label='', max_length=20, required=True, widget=forms.PasswordInput(
+                                                    attrs={
+                                                        "placeholder": "Hasło",
+                                                        "class": "form-control mb-4"
+                                                    }
+                                                )
+                                         )
 
-    confirm = forms.BooleanField(label='Powiadamiaj mnie o nowych ofertach', required=False)
+    # confirm = forms.BooleanField(label='Powiadamiaj mnie o nowych ofertach', required=False)
 
     class Meta:
-        model = Customer
-        fields = (
-            'name',
+        model = User
+        fields = [
+            'username',
             'email',
-            'password',
-            'confirm'
-        )
+            'password1',
+            'password2'
+            # 'confirm'
+        ]
+
+class UserLogin(forms.Form):
+    username  = forms.CharField(label='', required=False, widget=forms.TextInput(
+                                                 attrs={
+                                                     "placeholder": "Nazwa Użytkownika",
+                                                     "class": "form-control mb-4"
+                                                 }
+                                             )
+                                        )
+    password =  forms.CharField(label='', max_length=20, required=True, widget=forms.PasswordInput(
+                                                 attrs={
+                                                     "placeholder": "Hasło",
+                                                     "class": "form-control mb-4"
+                                                 }
+                                             )
+                                        )
