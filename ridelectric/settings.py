@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ridelectric',
         'USER': 'root',
-        'PASSWORD': 'Terazpa$y1',
+        'PASSWORD': -------,
         'HOST': 'localhost',
         'Port': '3306',
     }
@@ -152,7 +152,7 @@ EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST          = 'smtp.gmail.com'
 EMAIL_PORT          = 587
 EMAIL_HOST_USER     = 'diddychriss@gmail.com'
-EMAIL_HOST_PASSWORD = 'Iamtheone1'
+EMAIL_HOST_PASSWORD = ----------
 EMAIL_USE_TLS       = True
 EMAIL_USE_SSL       = False
 
