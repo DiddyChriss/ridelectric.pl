@@ -1,0 +1,57 @@
+{% extends 'shop/base_shop.html' %}
+{% load static %}
+
+{% block productshop %}
+
+{% for base_category in shop_base_category reversed %}
+    {% if slug|title == base_category.base_category_name|title   %}
+        {%  for id in shop_products %}
+            {% if id.category.base_category.base_category_name|title == slug|title  %}
+                <a href="{{ id.get_absolute_url }}">
+                    <div class="card col-11 col-md-5 col-lg-5 shadow p-2 mx-auto my-4 rounded" style="width: 22rem;">
+                        <img src="{{ id.image_product.url }}" class="card-img-top my-n1" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title my-n2">{{ id.title_product }}</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ id.price_product }} PLN netto</li>
+                        </ul>
+                        <div class="card-body my-n3">
+                            <a href="{{ id.get_absolute_url }}" class="card-link">Szczegóły Produktu</a>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% for category in shop_category reversed %}
+    {% if slug|title == category.category_name|title   %}
+        {%  for id in shop_products %}
+            {% if id.category.category_name|title == slug|title  %}
+                <a href="{{ id.get_absolute_url }}">
+                    <div class="card col-11 col-md-5 col-lg-5 shadow p-2 mx-auto my-4 rounded" style="width: 22rem;">
+                        <img src="{{ id.image_product.url }}" class="card-img-top my-n1" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title my-n2">{{ id.title_product }}</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ id.price_product }} PLN netto</li>
+                        </ul>
+                        <div class="card-body my-n3">
+                            <a href="{{ id.get_absolute_url }}" class="card-link">Szczegóły Produktu</a>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+

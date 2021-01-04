@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <div class="container center">
+        <div class="container center">
+            <h4> Witaj {{ first_name }} {{ last_name }}</h4>
+            <h5>Dziękujemy za zakup:</h5>
+                {% for order_item in order_items %}
+                    {% if order_item.order.id == shopping_id %}
+                        <p>- {{ order_item.quantity }} x {{ order_item.product.title_product }}</p>
+                    {% endif %}
+                {% endfor %}
+            <h5>Twoje produkty zostaną przesłane na adres:</h5>
+            <h5>{{ street_name }} {{ street_number }}, {{ zip_code }} {{ city }}</h5>
+            <h5>Serdecznie Pozdrawiam</h5>
+            <h5>Zespół ridelectric.pl</h5>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -60,7 +60,7 @@
           // This function captures the funds from the transaction.
           return actions.order.capture().then(function(details) {
             // This function shows a transaction success message to your buyer.
-            alert('Transaction completed by ' + details.payer.name.given_name);
+            alert('Platność użytkownika ' + details.payer.name.given_name + 'powiodła się');
             window.location.href = 'http://127.0.0.1:8000/sklep/koszyk/zaplac/paypal/end';
           });
         }

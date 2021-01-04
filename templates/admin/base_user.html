@@ -1,0 +1,140 @@
+{% load rest_framework %}
+{% load static %}
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+          <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+          <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+          <!-- Bootstrap core CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static 'css2-shop/modify2.css' %}">
+        <title>ridelectric - api</title>
+        <link rel="shortcut icon" href="{% static 'img/ficon.png' %}">
+</head>
+<body>
+          <nav class="navbar navbar-light bg-primary navbar-expand-md shadow-sm mb-1 rounded">
+                <img class="image-logo mr-auto ml-n1" style="height: 3.5rem"
+                                 src="{% static 'img/logo.png' %}" alt="Logo">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav nav-pills "
+                     id="navbarToggleExternalContent">
+                    <a class="mr-auto badge badge-pill w-25 p-3 badge-light mx-md-auto mt-1" href="/sklep">
+                        <span class="" title="Powrót do Sklepu">Powrót e-Shop</span>
+                    </a>
+                    <div class="ml">
+                            {% if user.is_authenticated %}
+                            <a class="" href="/sklep/wyloguj/out/">
+                                <button type="button" class="btn btn-outline-light" name="log_off">
+                                    wyloguj <i class="fas fa-sign-out-alt" title="wyloguj"></i>
+                                </button>
+                            </a>
+                            {% else %}
+                            <a class="" href="/sklep/logowanie/in/">
+                                <button type="button" class="btn btn-outline-light">
+                                    zaloguj <i class="fas fa-sign-in-alt" title="zaloguj"></i>
+                                </button>
+                            </a>
+                            {% endif %}
+                            <a class=" " href="/">
+                                <button type="button" class="btn btn-outline-light">
+                                    <i class="fas fa-home" title="Strona Główna"></i>
+                                </button>
+                            </a>
+                    </div>
+                </div>
+        </nav>
+        <nav class="row navbar bg-primary shadow-sm">
+             <div class="col-12 text-center">
+                 <h5 class="" style="color:white;">
+                    Witaj w panelu klienta {{ shoppingaddress.customer.user|title }}
+                 </h5>
+             </div>
+        </nav>
+    </div>
+        <div class="container mt-3">
+        {% if messages %}
+        {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div class="alert alert-primary mx-auto text-center" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+        </div>
+        <div class="container row mx-auto shadow-lg">
+            <div class="col-12 col-md-3 col-lg-2 alert alert-primary shadow-lg ml-md-n3 mb-n1 rounded" role="alert">
+                <!-- Mobile/nevbar -->
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navnavbarToggleExternalContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse nav nav-pills flex-column" id="navnavbarToggleExternalContent">
+                        <a class="mt-3 font-weight-bold" style="color:black" href="/sklep/api/{{ shoppingaddress.pk }}">
+                            Dane Użytkownika
+                        </a>
+                         <a class="mt-4 font-weight-bold " style="color:black" href="/sklep/api/orders/">
+                            Historia zamówień
+                        </a>
+                    </div>
+                </nav>
+                <!-- end of mobile bar -->
+            </div>
+
+            {% block user %}
+
+            {% endblock %}
+
+        </div>
+<nav class="navbar bottom navbar-light bg-primary shadow-sm mt-1 rounded">
+    <a class="navbar-brand mr-auto my-2" href="/">
+        <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
+    </a>
+    <div class="alert alert-info col-12 col-md-3 col-lg-3 mb-n1" role="alert">
+        <a href="/regulamin" class="alert-link"><p>Regulamin</p></a>
+        <a href="/polityka_prywatności" class="alert-link"><p>Polityka Prywatności</p></a>
+        <a href="https://www.facebook.com/ridelectricKRK/" class="alert-link"><p>Facebook: @ridelectricKRK</p></a>
+    </div>
+    <div class="alert alert-info col-12 col-md-6 col-lg-6 mx-auto mb-n1" role="alert">
+        <div class="row">
+            <div class="col-6">
+                <a href="/contact" class="alert-link"><p class="text-center">Kontakt</p></a>
+                <a href="/contact" class="alert-link"><p class="text-center">beExcellent</p></a>
+            </div>
+            <div class="col-6">
+                <a href="/contact" class="alert-link">
+                    <p class="font-weight-normal">Gaik 45a/4, 31-338 Kraków, Polska</p>
+                </a>
+                <a href="/contact" class="alert-link"><p class="font-weight-normal">info@ridelectric.pl</p></a>
+                <a href="/contact" class="alert-link"><p class="font-weight-normal">+48 796 720 019</p></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+</html>
+
+

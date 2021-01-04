@@ -1,0 +1,29 @@
+{% extends 'admin/base_user.html' %}
+{% load rest_framework %}
+{% load static %}
+
+{% block user %}
+
+<div class="col mx-2 my-2">
+    {% for order in serializer_data %}
+    <div class="my-3">
+        <p class="top-class">Numer zamówienia: <span class="font-weight-bold">{{ order.order_pk }}</span></p>
+         {% if order.complete == True %}
+            <p class="top-class">Status: <span class="font-weight-bold">Zamkniete</span></p>
+         {% elif order.complete == False %}
+            <p class="top-class">Status: <span class="font-weight-bold">Otwarte</span></p>
+         {% endif %}
+        <p class="top-class">Data utworzenia: <span class="font-weight-bold">{{ order.date_order }}</span></p>
+    </div>
+    <div class="my-5">
+        <a class=" font-weight-bold " style="color:red" href="/sklep/api/orders/{{ order.order_pk }}/">
+            Kliknij aby wejść w zakupione produkty
+        </a>
+    </div>
+     <hr class="my-4">
+    {% endfor %}
+</div>
+<a class="my-3" href="/sklep/koszyk/produkty/">
+    <button type="button"  class="btn btn-Danger mb-2">Przejdź do koszyka</button>
+</a>
+{% endblock %}

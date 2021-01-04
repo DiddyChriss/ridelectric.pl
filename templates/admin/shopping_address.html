@@ -1,0 +1,31 @@
+{% extends 'admin/base_user.html' %}
+{% load rest_framework %}
+{% load static %}
+
+
+
+{% block user %}
+
+<div class="col-5 col-md-2 mt-4 ml-3">
+    <p class="top-class">Imię*</p>
+    <p class="top-class">Nazwisko*</p>
+    <p class="top-class">Email*</p>
+    <p class="top-class">Ulica*</p>
+    <p class="top-class">Ulica nr.*</p>
+    <p class="top-class">Miasto*</p>
+    <p class="top-class">Kod Pocztowy*</p>
+    <p class="top-class">Komentarz</p>
+</div>
+<div class="col-6 col-md-4 col-lg-3 mt-5">
+    {% if shoppingaddress.pk %}
+    <form action="{% url 'api-detail' pk=shoppingaddress.pk %}" method="POST">
+        {% csrf_token %}
+        {% render_form serializer template_pack='rest_framework/inline' %}
+        <button type="submit" class="btn btn-Primary " name="submit_form">Zapisz</button>
+    </form>
+    {% endif %}
+</div>
+<a class="ml-auto my-3" href="/sklep/koszyk/produkty/">
+    <button type="button"  class="btn btn-Danger mb-2">Przejdź do koszyka</button>
+</a>
+{% endblock %}

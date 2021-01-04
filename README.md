@@ -5,7 +5,8 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Instruction](#Instructions)
+* [Instruction](#instructions)
+* [Live View](#live-view)
 * [Status](#status)
 * [Contact](#contact)
 
@@ -16,25 +17,30 @@ Project presents Website with description  of why it's worth to have photovoltai
 ## Technologies
 * Python - version 3.8
 * Python Django - version 3.0.6
+* Django REST Framework
 * HTML/CSS/Bootstrap
 * JavaScript 
 * MySQL
 
 ## Instructions
 #### Tab home contains carousel with link to "Photovoltaic installation", e-store and contact tabs.
-#### Tab About short discription of company, e-shop and photowoltaic installation offer
-#### Tab "Photovoltaic installation" more precise discription of offer, like type of installation
+#### Tab About short description of company, e-shop and photowoltaic installation offer
+#### Tab "Photovoltaic installation" more precise description of offer, like type of installation
+
 #### Tab Shop is temporary in modernization status, using front-end -bootstrap.
 #### Includes Navigation bar on left site, with categories of products, 
-#### serching option on left sait of bar, and shopping cart on right.
+#### searching option on left site of bar, and shopping cart on right.
 #### Middle container contains list of product, after click showing detail - description of product,
-#### where you can add product to shooping cart. Still on progress..
+#### where you can add product to shopping cart. Still on progress..
 #### Tab Contact contains simple contact form using database, with obligatory Firstname form, Email
 #### and Question form. Forms Surname and Company are optional.The contact form contains options
-####  for sending copy of the form to the email adress. Also contains contact details
+####  for sending copy of the form to the email address. Also contains contact details
+
+## Live View
+Live view available on (www.ridelectric.pl/)
 
 ## Status
-Project is: _in progress(for pandemic - taking this opportunity - the e-store is under reconstruction)
+Project is: _in progress(almost done..)
 
 ## Contact
 Created by [DiddyChriss] (http://chriss.pythonanywhere.com/) - feel free to contact me!

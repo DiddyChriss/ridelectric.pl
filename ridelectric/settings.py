@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'd)zi)-gj6prr)_$fe_^&kh@y#7-f%zyp!_v3bx%ue20s0fw1f#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,14 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'shop',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home',
+    'shop',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,11 @@ WSGI_APPLICATION = 'ridelectric.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': '-------',
-        'NAME': '------',
-        'USER': '----',
-        'PASSWORD': '-------',
-        'HOST': '-------',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ridelectric',
+        'USER': 'root',
+        'PASSWORD': 'Terazpa$y1',
+        'HOST': 'localhost',
         'Port': '3306',
     }
 }
@@ -92,6 +93,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
+
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -105,6 +107,24 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ),
+}
 
 
 # Internationalization
@@ -126,12 +146,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = []
+STATIC_ROOT = '/home/Chriss/ridelectric2.0/ridelectric/static'
 
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST          = 'smtp.gmail.com'
 EMAIL_PORT          = 587
-EMAIL_HOST_USER     = '---------'
-EMAIL_HOST_PASSWORD = '--------'
+EMAIL_HOST_USER     = 'diddychriss@gmail.com'
+EMAIL_HOST_PASSWORD = 'Iamtheone1'
 EMAIL_USE_TLS       = True
 EMAIL_USE_SSL       = False
 

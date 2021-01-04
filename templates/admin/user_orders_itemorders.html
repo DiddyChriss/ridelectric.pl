@@ -1,0 +1,23 @@
+{% extends 'admin/base_user.html' %}
+{% load rest_framework %}
+{% load static %}
+
+{% block user %}
+
+<div class="col mx-2 my-2">
+    <h5 class="text-center my-4">Numer zamówienia: <span class="font-weight-bold">{{ pk }}</span></h5>
+          <hr class="my-4">
+    {% for order in serializer_data %}
+        {% if  order.order_pk == pk %}
+            <div class="">
+                <p class="top-class">Nazwa Produktu: <span class="font-weight-bold">{{ order.product|title }} </span></p>
+                <p class="top-class">Ilość: <span class="font-weight-bold">{{ order.quantity }}</span></p>
+            </div>
+            <hr class="my-4">
+        {% endif %}
+    {% endfor %}
+</div>
+<a class="my-3" href="/sklep/koszyk/produkty/">
+    <button type="button"  class="btn btn-Danger mb-2">Przejdź do koszyka</button>
+</a>
+{% endblock %}
