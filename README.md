@@ -26,6 +26,7 @@ Project presents Website with description  of why it's worth to have photovoltai
 #### Tab home contains carousel with link to "Photovoltaic installation", e-store and contact tabs.
 #### Tab About short description of company, e-shop and photowoltaic installation offer
 #### Tab "Photovoltaic installation" more precise description of offer, like type of installation
+![Test Image 3]("/READMEimg/shop.png")
 
 #### Tab Shop is temporary in modernization status, using front-end -bootstrap.
 #### Includes Navigation bar on left site, with categories of products, 

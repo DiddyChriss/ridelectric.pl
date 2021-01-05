@@ -99,7 +99,7 @@
                         {% for base_category in shop_base_category reversed%}
                         <a class="nevbar nav-link mx-n2 font-weight-bold"
                            href="/sklep/{{ base_category.base_category_name }}">
-                            {{ base_category.base_category_name }}
+                                {{ base_category.base_category_name }}
                         </a>
                             <nav class="nav nav-pills flex-column">
                                 {% for category in shop_category reversed %}
@@ -107,6 +107,17 @@
                                     <a class="nav-link ml-3 my-1" href="/sklep/{{ category.category_name }}">
                                         {{ category.category_name }}
                                     </a>
+
+                                    {% for subcategory in shop_subcategory reversed %}
+                                    {% if category.category_name ==  subcategory.category.category_name %}
+                                        <a class="text-right" href="/sklep/{{ subcategory.subcategory_name }}">
+                                            <small>
+                                                {{ subcategory.subcategory_name }}
+                                            </small>
+                                        </a>
+                                    {% endif %}
+                                    {% endfor %}
+
                                 {% endif %}
                                 {% endfor %}
                             </nav>
@@ -157,8 +168,6 @@
         </div>
     </div>
 </nav>
-
-
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script type="text/javascript">
