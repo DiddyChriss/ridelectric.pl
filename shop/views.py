@@ -23,15 +23,9 @@ class Shop_post_View():                                 # all POST class
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
-                try:
-                    customer = Customer.objects.get(user=request.user, email=request.user.email)
-                except:
-                    customer = Customer.objects.get(user=request.user)
-                try:
-                    shopping_add = ShoppingAddress.objects.get(customer=customer, email=customer.email)
-                except:
-                    shopping_add = ShoppingAddress.objects.get(customer=customer)
-                shopping_address_pk = shopping_add.pk
+                customer = Customer.objects.get(user=request.user)
+                shopp_add_pk, create = ShoppingAddress.objects.get_or_create(customer=customer)
+                shopping_address_pk = shopp_add_pk.pk
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
@@ -99,7 +93,7 @@ class Shop_post_View():                                 # all POST class
                         or sal.street_number == None or sal.city == None or sal.zip_code == None:
                     messages.error(request, 'Brak informacji o wysyłce! Uzupełnij dane do wysyłki i wróć do'
                                             'koszyka aby dokończyć płatność', extra_tags="error")
-                    return HttpResponseRedirect('/api/{}/'.format(sal.pk))
+                    return HttpResponseRedirect('/sklep/api/{}/'.format(sal.pk))
                 else:
                     return redirect('/sklep/koszyk/zaplac/paypal/')
             else:
@@ -175,7 +169,6 @@ class Shop_post_View():                                 # all POST class
             'order': order,
             'shopping_address_pk': shopping_address_pk,
         }
-
         return render(self.request, 'shop/shop_search.html', context)
 
 class Shop_get_View():                                                  #all get class
@@ -197,16 +190,9 @@ class Shop_get_View():                                                  #all get
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
-                try:
-                    customer, created = Customer.objects.get_or_create(user=request.user, email=request.user.email)
-                except:
-                    customer, created = Customer.objects.get_or_create(user=request.user)
-                try:
-                    shopping_add, create = ShoppingAddress.objects.get_or_create(customer=customer,
-                                                                                 email=customer.email)
-                except:
-                    shopping_add, create = ShoppingAddress.objects.get_or_create(customer=customer)
-                shopping_address_pk = shopping_add.pk
+                customer, created = Customer.objects.get_or_create(user=request.user)
+                shopp_add_pk, create = ShoppingAddress.objects.get_or_create(customer=customer)
+                shopping_address_pk = shopp_add_pk.pk
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
@@ -217,9 +203,6 @@ class Shop_get_View():                                                  #all get
                     queryset_cart.append(user_item)
         except:
             queryset_cart = []
-            shopping_address_pk = 0
-
-
 
         context = {
             'form': form,
@@ -264,16 +247,9 @@ class Shop_Product_DetailView(Shop_post_View, View):                       # Det
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
-                try:
-                    customer, created = Customer.objects.get_or_create(user=request.user, email=request.user.email)
-                except:
-                    customer, created = Customer.objects.get_or_create(user=request.user)
-                try:
-                    shopping_add, create = ShoppingAddress.objects.get_or_create(customer=customer,
-                                                                                 email=customer.email)
-                except:
-                    shopping_add, create = ShoppingAddress.objects.get_or_create(customer=customer)
-                shopping_address_pk = shopping_add.pk
+                customer, created = Customer.objects.get_or_create(user=request.user)
+                shopp_add_pk, create = ShoppingAddress.objects.get_or_create(customer=customer)
+                shopping_address_pk = shopp_add_pk.pk
             else:
                 device = request.COOKIES['device']
                 customer, created = Customer.objects.get_or_create(device=device)
@@ -284,7 +260,6 @@ class Shop_Product_DetailView(Shop_post_View, View):                       # Det
                     queryset_cart.append(user_item)
         except:
             queryset_cart = []
-            shopping_address_pk = 0
 
         context = {
             'form': form,
@@ -336,7 +311,6 @@ class Shop_PayPal_End_View(View):
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
         except:
             pass
-
         try:
             shopping_address = ShoppingAddress.objects.get(customer=customer, order=order)
             order_items = OrderItem.objects.all()

@@ -18,24 +18,12 @@ class ShoppingaddressAPIView(viewsets.ModelViewSet):
     renderer_classes = [TemplateHTMLRenderer,]
     template_name = 'admin/shopping_address.html'
 
-
     def list(self, request, *args, **kwargs):
         serializer_form = ''
         shoppingaddress_detial = ''
         queryset = self.filter_queryset(self.get_queryset())
         try:
             customer = Customer.objects.get(user=request.user)
-            try:
-                customer.email = request.user.email
-                customer.save()
-            except:
-                pass
-            shopping_address = ShoppingAddress.objects.get_or_create(customer=customer)
-            try:
-                shopping_address.email = customer.email
-                shopping_address.save()
-            except:
-                pass
             queryset = queryset.filter(customer=customer)
             page = self.paginate_queryset(queryset)
         except:
@@ -76,22 +64,10 @@ class OrderAPIView(viewsets.ModelViewSet):
     renderer_classes =[TemplateHTMLRenderer, ]
     template_name = 'admin/user_orders.html'
 
-
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         try:
             customer = Customer.objects.get(user=request.user)
-            try:
-                customer.email = request.user.email
-                customer.save()
-            except:
-                pass
-            shopping_address = ShoppingAddress.objects.get(customer=customer)
-            try:
-                shopping_address.email = customer.email
-                shopping_address.save()
-            except:
-                pass
             queryset = queryset.filter(customer=customer)
             page = self.paginate_queryset(queryset)
         except:
@@ -118,17 +94,6 @@ class OrderItemAPIView(viewsets.ModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
         try:
             customer = Customer.objects.get(user=request.user)
-            try:
-                customer.email = request.user.email
-                customer.save()
-            except:
-                pass
-            shopping_address = ShoppingAddress.objects.get(customer=customer)
-            try:
-                shopping_address.email = customer.email
-                shopping_address.save()
-            except:
-                pass
             queryset = queryset.filter(customer=customer, pk=pk)
             page = self.paginate_queryset(queryset)
         except:
@@ -141,7 +106,6 @@ class OrderItemAPIView(viewsets.ModelViewSet):
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
-
         pk = self.kwargs.get('pk')
         serializer = self.get_serializer(queryset, many=True)
 
