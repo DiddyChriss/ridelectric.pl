@@ -33,19 +33,19 @@ Project presents Website with description  of why it's worth to have photovoltai
 
 ![Shop](READMEimg/basecategory.png)
 #### So you can view them in template:
-![Shop](READMEimg/navbar left basecat.png)
+![Shop](READMEimg/navbarleftbasecat.png)
 #### Than create categories:
 ![Shop](READMEimg/addcategory.png)
 
 ![Shop](READMEimg/category.png)
 #### View in template:
-![Shop](READMEimg/navbar left cat.png)
+![Shop](READMEimg/navbarleftcat.png)
 #### You can create subcategory also:
 ![Shop](READMEimg/addsubcategory.png)
 
 ![Shop](READMEimg/subcategory.png)
 #### View in teamplate:
-![Shop](READMEimg/navbar left subcat.png)
+![Shop](READMEimg/navbarleftsubcat.png)
 #### Add some product to your shop - use created category and subcategory:
 ![Shop](READMEimg/addproduct.png)
 #### Register as user, and login:
