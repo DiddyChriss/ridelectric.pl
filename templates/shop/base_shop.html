@@ -97,13 +97,13 @@
                             aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                        {% recursetree geners %}
+                        {% recursetree category %}
                         <div class="collapse navbar-collapse nav nav-pills flex-column" id="navbarToggleExternalContent">
-                            <a class="nevbar nav-link  mx-n4 font-weight-bold"
+                            <a class="nevbar nav-link mx-n4 font-weight-bold"
                                            href="/sklep/{{ node.name }}">
                                 {{ node.name }}
                             </a>
-                            <nav class="nav nav-pills flex-column">
+                            <nav class="nav nav-pills mx-n2 flex-column">
                                 <li>
                                 {% if not node.is_leaf_node %}
                                     <ul  class="ml-n4">

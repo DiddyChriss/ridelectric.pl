@@ -21,6 +21,19 @@
 <body>
 
 <div class="container mt-5 text-center">
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'info' in message.tags %}
+                <div class="alert alert-primary my-3 mx-3" role="alert">
+                    {{ message }}
+                </div>
+            {% elif 'error' in message.tags %}
+                <div class="alert alert-danger my-3 mx-3" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     <p class="mt-5">
         Transakcja zakonczona, aby powrócić do strony głownej kliknij:
         <a href="/sklep/">Powrót</a>

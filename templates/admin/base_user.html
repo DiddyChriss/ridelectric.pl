@@ -20,8 +20,9 @@
 </head>
 <body>
           <nav class="navbar navbar-light bg-primary navbar-expand-md shadow-sm mb-1 rounded">
-                <img class="image-logo mr-auto ml-n1" style="height: 3.5rem"
-                                 src="{% static 'img/logo.png' %}" alt="Logo">
+                 <a class="navbar-brand mr-auto" href="/">
+                    <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarToggleExternalContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -99,16 +100,16 @@
             {% endblock %}
 
         </div>
-<nav class="navbar bottom navbar-light bg-primary shadow-sm mt-1 rounded">
+<nav class="navbar bottom navbar-light bg-primary shadow-sm mb-1 rounded">
     <a class="navbar-brand mr-auto my-2" href="/">
         <img class="image-logo" style="height: 4rem" src="{% static 'img/logo.png' %}" alt="Logo">
     </a>
-    <div class="alert alert-info col-12 col-md-3 col-lg-3 mb-n1" role="alert">
+    <div class="alert alert-info col-12 col-md-3  mb-n1" role="alert">
         <a href="/regulamin" class="alert-link"><p>Regulamin</p></a>
         <a href="/polityka_prywatności" class="alert-link"><p>Polityka Prywatności</p></a>
         <a href="https://www.facebook.com/ridelectricKRK/" class="alert-link"><p>Facebook: @ridelectricKRK</p></a>
     </div>
-    <div class="alert alert-info col-12 col-md-6 col-lg-6 mx-auto mb-n1" role="alert">
+    <div class="alert alert-info col-12 col-md-5 mx-auto mb-n1" role="alert">
         <div class="row">
             <div class="col-6">
                 <a href="/contact" class="alert-link"><p class="text-center">Kontakt</p></a>
@@ -116,13 +117,17 @@
             </div>
             <div class="col-6">
                 <a href="/contact" class="alert-link">
-                    <p class="font-weight-normal">Gaik 45a/4, 31-338 Kraków, Polska</p>
+                    <p class="font-weight-normal my-n1">Gaik 45a/4, 31-338 Kraków, Polska</p>
                 </a>
                 <a href="/contact" class="alert-link"><p class="font-weight-normal">info@ridelectric.pl</p></a>
-                <a href="/contact" class="alert-link"><p class="font-weight-normal">+48 796 720 019</p></a>
+                <a href="/contact" class="alert-link my-n1"><p class="font-weight-normal">+48 796 720 019</p></a>
             </div>
         </div>
     </div>
+    <a class="navbar-brand ml-auto mt-2" href="https://chriss.pythonanywhere.com/">
+        <h6 class="ml-n3 mb-n2">Created by.. </h6>
+        <img class="image-logo" style="height: 3rem" src="{% static 'img/logo Diddychriss.png' %}" alt="Logo">
+    </a>
 </nav>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -26,8 +26,6 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem, OrderItemAdmin)
 admin.site.register(ShoppingAddress, ShoppingAddressAdmin)
-
-
 admin.site.register(Category, MPTTModelAdmin)
 
 

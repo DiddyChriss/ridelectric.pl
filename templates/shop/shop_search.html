@@ -14,7 +14,7 @@
     {%  for id in shop_products  %}
         <a href="{{ id.get_absolute_url }}">
             <div class="card col-11 col-md-5 col-lg-5 shadow p-2 mx-auto my-4 rounded" style="width: 22rem;">
-                <img src="{{ id.image_product.url }}" class="card-img-top my-n1" alt="...">
+                <img src="{{ id.image_product.url }}" class="card-img-top my-n1" style="height: 16rem" alt="...">
                 <div class="card-body">
                     <h5 class="card-title my-n3">{{ id.title_product }}</h5>
                 </div>

@@ -17,6 +17,7 @@ class ShopPostView():                                 # all POST class
         pay_form = PaymentForms(self.request.POST or None)
         email_form = EmailShop(self.request.POST or None)
         queryset_cart_all_users = OrderItem.objects.all()
+        category = Category.objects.all()
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
@@ -163,6 +164,7 @@ class ShopPostView():                                 # all POST class
             'shop_products_cart_list': queryset_cart,
             'order': order,
             'shopping_address_pk': shopping_address_pk,
+            'category': category,
         }
         return render(self.request, 'shop/shop_search.html', context)
 
@@ -177,6 +179,7 @@ class ShopGetView():#all get class
         queryset = Product.objects.all()
         queryset_cart_all_users = OrderItem.objects.all()
         Customer.objects.get_or_create(device='is_anonymous')
+        category = Category.objects.all()
         order = ''
         customer = ''
         shopping_address_pk = 0
@@ -202,10 +205,6 @@ class ShopGetView():#all get class
         except:
             queryset_cart = []
 
-
-        # print(Product.objects.get(title_product='Stacja EV 7 kW').category)
-
-
         context = {
             'form': form,
             'pay_form': pay_form,
@@ -218,13 +217,7 @@ class ShopGetView():#all get class
             'order': order,
             'customer': customer,
             'shopping_address_pk': shopping_address_pk,
-
-###########################################################3
-            'geners': Category.objects.all(),
- ##########################################################
-
-
-
+            'category': category,
         }
         if slug is not None:
             context['slug'] = slug
@@ -247,6 +240,7 @@ class ShopProductDetailView(ShopPostView, View):                       # Detail 
     def get(self, request, pk=None, *args, **kwargs):
         form = SearchForm()
         queryset_cart_all_users = OrderItem.objects.all()
+        category = Category.objects.all()
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
@@ -268,11 +262,7 @@ class ShopProductDetailView(ShopPostView, View):                       # Detail 
             'form': form,
             'shop_products_cart': len(queryset_cart),
             'shopping_address_pk': shopping_address_pk,
-
-            ###########################################################3
-            'geners': Category.objects.all(),
-            ##########################################################
-
+            'category': category,
         }
         if pk is not None:
             object = get_object_or_404(Product, pk=pk)

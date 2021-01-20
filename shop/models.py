@@ -39,7 +39,7 @@ class Category(MPTTModel):
 
 class Product(models.Model):
     title_product = models.CharField(max_length=40, null=True)
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True) # models.ManyToManyField(Category)
     description_product = models.TextField(null=True)
     description_product_2 = models.CharField(max_length=60, null=True, blank=True, default=None)
     price_product = models.DecimalField(decimal_places=2, max_digits=20, default=True)
