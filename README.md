@@ -29,24 +29,26 @@ Project presents Website with description  of why it's worth to have photovoltai
 #### Tab Shop is supply with a full of functional online store (e-shop):
 ![Shop](READMEimg/Shop.png)
 #### Create Base Categories in admin panel:
-![Shop](READMEimg/addbasecategory.png)
+![Shop](READMEimg/addbasecategor2.png)
 
-![Shop](READMEimg/basecategory.png)
 #### So you can view them in template:
-![Shop](READMEimg/navbarleftbasecat.png)
+![Shop](READMEimg/shopnavbarbasecat.png)
 #### Than create categories:
 ![Shop](READMEimg/addcategory.png)
 
-![Shop](READMEimg/category.png)
 #### View in template:
-![Shop](READMEimg/navbarleftcat.png)
+![Shop](READMEimg/shopnavbarcat.png)
 #### You can create subcategory also:
 ![Shop](READMEimg/addsubcategory.png)
 
-![Shop](READMEimg/subcategory.png)
 #### View in teamplate:
-![Shop](READMEimg/navbarleftsubcat.png)
-#### Add some product to your shop - use created category and subcategory:
+![Shop](READMEimg/shopnavbasubcat.png)
+
+#### Your categories in admin panel
+![Shop](READMEimg/addbasecategory.png)
+
+
+#### Add some product to your shop - use created base category, category or subcategory:
 ![Shop](READMEimg/addproduct.png)
 #### Register as user, and login:
 ![Shop](READMEimg/register.png)
