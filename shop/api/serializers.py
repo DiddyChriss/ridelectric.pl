@@ -49,8 +49,9 @@ class ShoppingAddressSerializer(ModelSerializer):
         city = data.get("city", None)
         zip_code = data.get("zip_code", None)
 
-        if first_name is None or last_name is None or email is None or street_name is None or street_number is None\
-                or city is None or zip_code is None:
+        if first_name is None or last_name is None or email is None or\
+                street_name is None or street_number is None or city is None or\
+                zip_code is None:
             raise serializers.ValidationError("Wypełnij puste pola!")
         return data
 

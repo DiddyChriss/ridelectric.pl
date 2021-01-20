@@ -11,14 +11,11 @@ from django.views import View
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Class area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-class Shop_post_View():                                 # all POST class
+class ShopPostView():                                 # all POST class
     def post(self,request, pk=None,  *args, **kwargs):
-        form = Search_form(self.request.POST or None)
+        form = SearchForm(self.request.POST or None)
         pay_form = PaymentForms(self.request.POST or None)
-        email_form = Email_Shop(self.request.POST or None)
-        queryset_base_category = BaseCategory.objects.all()
-        queryset_category = Category.objects.all()
-        queryset_subcategory = SubCategory.objects.all()
+        email_form = EmailShop(self.request.POST or None)
         queryset_cart_all_users = OrderItem.objects.all()
         shopping_address_pk = 0
         try:
@@ -89,8 +86,9 @@ class Shop_post_View():                                 # all POST class
                 sal = ShoppingAddress.objects.get(customer=customer)
                 sal.order = order
                 sal.save()
-                if sal.first_name == None or sal.last_name == None or sal.email == None or sal.street_name == None\
-                        or sal.street_number == None or sal.city == None or sal.zip_code == None:
+                if sal.first_name == None or sal.last_name == None or sal.email == None or \
+                        sal.street_name == None or sal.street_number == None or sal.city == None or \
+                        sal.zip_code == None:
                     messages.error(request, 'Brak informacji o wysyłce! Uzupełnij dane do wysyłki i wróć do'
                                             'koszyka aby dokończyć płatność', extra_tags="error")
                     return HttpResponseRedirect('/sklep/api/{}/'.format(sal.pk))
@@ -117,8 +115,8 @@ class Shop_post_View():                                 # all POST class
                 recipient_list = [email, 'diddychriss@gmail.com']
                 html_message = loader.render_to_string('shop/login/shop_send_email.html',
                                                        {
-                                                           'name': username,
-                                                           'email': email,
+                                                        'name': username,
+                                                        'email': email,
                                                        }
                                                        )
                 send_mail(subject, message, from_email, recipient_list, fail_silently=True, auth_user=None,
@@ -151,9 +149,9 @@ class Shop_post_View():                                 # all POST class
                     messages.info(request, 'Błędny login lub hasło ', extra_tags="info")
                     return HttpResponseRedirect('/sklep/logowanie/in/')
 
-        form = Search_form()
+        form = SearchForm()
         user_form = UserForms()
-        email_form = Email_Shop()
+        email_form = EmailShop()
         login_form = UserLogin()
         context = {
             'form': form,
@@ -161,9 +159,6 @@ class Shop_post_View():                                 # all POST class
             'email_form': email_form,
             'login_form': login_form,
             'shop_products': queryset,
-            'shop_base_category': queryset_base_category,
-            'shop_category': queryset_category,
-            'shop_subcategory': queryset_subcategory,
             'shop_products_cart': len(queryset_cart),
             'shop_products_cart_list': queryset_cart,
             'order': order,
@@ -171,18 +166,15 @@ class Shop_post_View():                                 # all POST class
         }
         return render(self.request, 'shop/shop_search.html', context)
 
-class Shop_get_View():                                                  #all get class
+class ShopGetView():#all get class
     def get(self,request, slug=None,  *args, **kwargs):
-        form = Search_form()
+        form = SearchForm()
         pay_form = PaymentForms()
         user_form = UserForms()
-        email_form = Email_Shop()
+        email_form = EmailShop()
         login_form = UserLogin()
 
         queryset = Product.objects.all()
-        queryset_base_category = BaseCategory.objects.all()
-        queryset_category = Category.objects.all()
-        queryset_subcategory = SubCategory.objects.all()
         queryset_cart_all_users = OrderItem.objects.all()
         Customer.objects.get_or_create(device='is_anonymous')
         order = ''
@@ -191,7 +183,13 @@ class Shop_get_View():                                                  #all get
         try:
             if request.user.is_authenticated:
                 customer, created = Customer.objects.get_or_create(user=request.user)
-                shopp_add_pk, create = ShoppingAddress.objects.get_or_create(customer=customer)
+                try:
+                    shopp_add_pk, create = ShoppingAddress.objects.get_or_create(
+                                                                                customer=customer,
+                                                                                email=request.user.email
+                                                                                )
+                except:
+                    shopp_add_pk, create = ShoppingAddress.objects.get_or_create(customer=customer)
                 shopping_address_pk = shopp_add_pk.pk
             else:
                 device = request.COOKIES['device']
@@ -204,6 +202,10 @@ class Shop_get_View():                                                  #all get
         except:
             queryset_cart = []
 
+
+        # print(Product.objects.get(title_product='Stacja EV 7 kW').category)
+
+
         context = {
             'form': form,
             'pay_form': pay_form,
@@ -211,14 +213,18 @@ class Shop_get_View():                                                  #all get
             'email_form': email_form,
             'login_form': login_form,
             'shop_products': queryset,
-            'shop_base_category': queryset_base_category,
-            'shop_category': queryset_category,
-            'shop_subcategory': queryset_subcategory,
             'shop_products_cart': len(queryset_cart),
             'shop_products_cart_list': queryset_cart,
             'order': order,
             'customer': customer,
             'shopping_address_pk': shopping_address_pk,
+
+###########################################################3
+            'geners': Category.objects.all(),
+ ##########################################################
+
+
+
         }
         if slug is not None:
             context['slug'] = slug
@@ -232,18 +238,15 @@ class Shop_get_View():                                                  #all get
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Template/Search area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-class ShopAllListView(Shop_get_View, Shop_post_View, View):                              # All products from shop
+class ShopAllListView(ShopGetView, ShopPostView, View):                              # All products from shop
     template_name = 'shop/shop.html'
 
-class Shop_Product_DetailView(Shop_post_View, View):                       # Detail products from shop
+class ShopProductDetailView(ShopPostView, View):                       # Detail products from shop
     template_name = 'shop/shop_detail.html'
 
     def get(self, request, pk=None, *args, **kwargs):
-        form = Search_form()
+        form = SearchForm()
         queryset_cart_all_users = OrderItem.objects.all()
-        queryset_base_category = BaseCategory.objects.all()
-        queryset_category = Category.objects.all()
-        queryset_subcategory = SubCategory.objects.all()
         shopping_address_pk = 0
         try:
             if request.user.is_authenticated:
@@ -264,10 +267,12 @@ class Shop_Product_DetailView(Shop_post_View, View):                       # Det
         context = {
             'form': form,
             'shop_products_cart': len(queryset_cart),
-            'shop_base_category': queryset_base_category,
-            'shop_category': queryset_category,
-            'shop_subcategory': queryset_subcategory,
             'shopping_address_pk': shopping_address_pk,
+
+            ###########################################################3
+            'geners': Category.objects.all(),
+            ##########################################################
+
         }
         if pk is not None:
             object = get_object_or_404(Product, pk=pk)
@@ -280,27 +285,28 @@ class Shop_Product_DetailView(Shop_post_View, View):                       # Det
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Shopping cart area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-class Shop_Cart_View(Shop_get_View, Shop_post_View, View):
+class ShopCartView(ShopGetView, ShopPostView, View):
     template_name = 'shop/shop_cart.html'
 
-class Shop_Cart_View_Detail(Shop_get_View, Shop_post_View, View):
+class ShopCartViewDetail(ShopGetView, ShopPostView, View):
     template_name = 'shop/shop_cart.html'
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End Shopping cart area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-class Shop_Payment_View(Shop_get_View, Shop_post_View, View):
+class ShopPaymentView(ShopGetView, ShopPostView, View):
     template_name = 'shop/payment/shop_payment.html'
 
-class Shop_PayPal_View(Shop_get_View, View):
+class ShopPayPalView(ShopGetView, View):
     template_name = 'shop/payment/shop_paypal.html'
 
-class Shop_PayPal_End_View(View):
+class ShopPayPalEndView(View):
     template_name = 'shop/payment/shop_paypal_end.html'
     def get(self,request, pk=None,  *args, **kwargs):
         Customer.objects.get_or_create(device='is_anonymous')
         order = ''
+
         try:
             if request.user.is_authenticated:
                 user_customer = request.user
@@ -311,13 +317,15 @@ class Shop_PayPal_End_View(View):
             order, created = Order.objects.get_or_create(customer=customer, complete=False)
         except:
             pass
+        order.complete = True
+        order.save()
         try:
             shopping_address = ShoppingAddress.objects.get(customer=customer, order=order)
             order_items = OrderItem.objects.all()
             subject = 'Potwierdzenie zakupu produktów, ridelectric.pl'  # subject of email
             message = 'Dziękujemy za dokonanie zakupów naszych produktów ridelectric.pl'  # reserve messego
             from_email = settings.EMAIL_HOST_USER  # adres from send and details from settings
-            recipient_list = [shopping_address.email, 'diddychriss@gmail.com']  # delivery email
+            recipient_list = [shopping_address.email, from_email]  # delivery email
             html_message = loader.render_to_string('shop/payment/email_shop_confirmation.html',
                                                    {
                                                        'order_items': order_items,
@@ -330,7 +338,7 @@ class Shop_PayPal_End_View(View):
                                                        'city': shopping_address.city.capitalize(),
                                                        'zip_code': shopping_address.zip_code
                                                    }
-                                                   )
+                                                )
             send_mail(subject, message, from_email, recipient_list, fail_silently=True, auth_user=None,
                       auth_password=None, html_message=html_message                     # send_mail function
                       )
@@ -338,23 +346,23 @@ class Shop_PayPal_End_View(View):
             pass
         order.complete = True
         order.save()
-        return render(self.request, self.template_name ) # self.template_name)
+        return render(self.request, self.template_name )
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< End Payment area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Login area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-class Shop_Login_View(Shop_get_View, Shop_post_View, View):
+class ShopLoginView(ShopGetView, ShopPostView, View):
     template_name = 'shop/login/shop_login.html'
 
-class Shop_Register_View(Shop_get_View, Shop_post_View, View):
+class ShopRegisterView(ShopGetView, ShopPostView, View):
     template_name = 'shop/login/shop_register.html'
 
-class Shop_User_View(Shop_get_View, Shop_post_View, View):
+class ShopUserView(ShopGetView, ShopPostView, View):
     template_name = 'shop/login/shop_user.html'
 
-class Shop_Logout_View(Shop_post_View, View):
+class ShopLogoutView(ShopPostView, View):
     def get(self, request, pk=None, *args, **kwargs):
         logout(request)
         messages.info(request, 'Poprawnie wylogowano', extra_tags="info")

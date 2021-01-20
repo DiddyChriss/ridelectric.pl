@@ -7,7 +7,7 @@ from django.views import View
 from .forms import *
 
 
-class Contact_View(View):
+class ContactView(View):
     template_name = 'contact.html'
     def get(self,request, pk=None,  *args, **kwargs):
         contact_form = ContactForms()
@@ -32,13 +32,13 @@ class Contact_View(View):
                 message = 'Dziękujemy za skorzystanie z Formularza Kontaktowego ridelectric.pl'  # reserve messego
                 from_email = settings.EMAIL_HOST_USER                     # adres from send and details from settings
 
-                recipient_list = [email, 'diddychriss@gmail.com']           # delivery email
+                recipient_list = [email, from_email]          # delivery email
                 html_message = loader.render_to_string('emailsend.html',
-                                                          {
-                                                              'name': name.capitalize(),
-                                                              'surname': surname.capitalize(),
-                                                              'question': question
-                                                          }
+                                                       {
+                                                        'name': name.capitalize(),
+                                                        'surname': surname.capitalize(),
+                                                        'question': question
+                                                        }
                                                         )     # render body from html(templates)
 
                 send_mail(subject, message, from_email, recipient_list, fail_silently=True, auth_user=None,
@@ -48,8 +48,8 @@ class Contact_View(View):
                 send = ''
 
             confirmation_text = 'Dziękujemy {} {} za skorzystanie z Formularza Kontaktowego!'.format(
-                                                                                     name.capitalize(),
-                                                                                     surname.capitalize()
+                                                                                                    name.capitalize(),
+                                                                                                    surname.capitalize()
                                                                                                     )
             contact_form.save()
 

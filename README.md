@@ -72,7 +72,7 @@ Project presents Website with description  of why it's worth to have photovoltai
 Live view available on (www.ridelectric.pl/)
 
 ## Status
-Project is: _in progress(almost done..)
+Finish
 
 ## Contact
 Created by [DiddyChriss] (http://chriss.pythonanywhere.com/) - feel free to contact me!

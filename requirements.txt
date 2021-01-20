@@ -8,3 +8,5 @@ mysqlclient==2.0.1
 Pillow==8.0.1
 django-upload-validator==1.1.5
 django-imagekit==4.0.2
+django-mptt==0.11.0
+

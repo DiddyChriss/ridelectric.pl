@@ -1,14 +1,13 @@
 from django.db import models
 
-# Create your models here.
 
 class ContactModels(models.Model):                  #creating of data in models
-    name         = models.CharField(max_length=200)
-    surname      = models.CharField(blank=True, max_length=200)
-    company      = models.CharField(blank=True, max_length=200)
-    date         = models.DateTimeField(auto_now=True)
-    email        = models.EmailField(max_length=200)
-    question     = models.TextField()
+    name = models.CharField(max_length=200)
+    surname = models.CharField(blank=True, max_length=200)
+    company = models.CharField(blank=True, max_length=200)
+    date = models.DateTimeField(auto_now=True)
+    email = models.EmailField(max_length=200)
+    question = models.TextField()
     confirmation = models.BooleanField(null=True)
 
     class Meta:
