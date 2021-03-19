@@ -5,7 +5,7 @@ djangorestframework==3.12.2
 djangorestframework-jwt==1.11.0
 djangorestframework-files==1.1.0
 mysqlclient==2.0.1
-Pillow==8.0.1
+Pillow==8.1.1
 django-upload-validator==1.1.5
 django-imagekit==4.0.2
 django-mptt==0.11.0
